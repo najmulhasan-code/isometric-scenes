@@ -11,13 +11,13 @@ A verifiers v1 environment: the model writes one animated isometric SVG for a sc
 A rollout is scored in four stages.
 
 1. Code gates check that the answer is one well-formed, self-contained SVG of at most 64 KB, with no scripts, external references, event handlers or animation that starts or ends on an event, and with text only from quoted spans of the prompt (`svg_scoring/gates.py`).
-2. The SVG is rendered in its own Prime sandbox with all outbound traffic denied. Animations are paused at four seeded times, and the frames are measured in the browser (`isometric_scenes/render.py`, `svg_scoring/render_frames.py`).
-3. Code checks on the frames require that no single colour covers more than 98% of the first frame, and that something moves locally, also between two of the later frames, without a full-frame flash (`svg_scoring/motion.py`).
+2. The SVG is rendered in its own Prime sandbox with all outbound traffic denied. Animations are paused at four times, t = 0 and three times seeded from the SVG text, and the frames are measured in the browser (`isometric_scenes/render.py`, `svg_scoring/render_frames.py`).
+3. Code checks on the frames test that no single colour covers more than 98% of the first frame (a blank frame scores 0), and that something moves locally, also between two of the later frames, without a full-frame flash (`svg_scoring/motion.py`).
 4. A vision judge answers six yes/no items about the frames (`isometric_scenes/judge.py`). The default judge is `google/gemma-3-27b-it`, the training judge. Change it with `--taskset.task.judge.model`, or `env.taskset.task.judge.model` in a prime-rl config.
 
 A failed gate, a failed render or a blank frame scores 0, and so does a person, animal, face or figure seen by the judge. Otherwise the reward is the mean of the judge's scene, objects, isometric and composition items, the motion check, and, for prompts that name a moving element, the judge's motion item.
 
-Sandbox and judge failures raise an error instead of returning a score. `verifiers` records such rollouts with the error, and they were left out of training and evaluation, with their number reported.
+Sandbox and judge failures raise an error instead of returning a score. `verifiers` records such rollouts with the error, and they were left out of training and evaluation. The analysis reports how many final-evaluation answers this affected.
 
 ## Setup
 

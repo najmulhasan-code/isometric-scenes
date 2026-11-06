@@ -2,7 +2,7 @@
 
 This folder holds the code that builds the prompt dataset for isometric scenes: the text prompts in `train`, `val`, `test` and `test_unseen`. The dataset card describes the rules, the splits and the known limitations: https://huggingface.co/datasets/najmulhasan/isometric-scenes
 
-The prompts were written by a language model, `openai/gpt-oss-120b`, and every request and reply was logged. Every step after that is code: rule checks, deduplication, the split assignment, a review in rounds by a pre-screen model, with a person's spot check of 50 seeded items in the first round, and the release checks. The released files can therefore be rebuilt exactly from the logs and the recorded review decisions.
+The prompts were written by a language model, `openai/gpt-oss-120b`, and every request and reply was logged. Every step after that is code: rule checks, deduplication, the split assignment, a review in rounds by a review model, with the author's spot check of 50 seeded items in the first round, and the release checks. The released files can therefore be rebuilt exactly from the logs and the recorded review decisions.
 
 ## Setup
 
@@ -22,7 +22,7 @@ Only the steps that call a model need an API key. They read `PRIME_API_KEY` from
 
 ## Rebuild the released splits
 
-The raw data is published with the dataset in the `raw/` folder. It holds the generator logs of the main run and the refill runs, the pre-screen replies of each review round, the person's decisions (`review/decisions.json`), and the published checksums. Provider request IDs were removed from the logs, and no step reads them.
+The raw data is published with the dataset in the `raw/` folder. It holds the generator logs of the main run and the refill runs, the review model's replies in each round, the author's decisions (`review/decisions.json`), and the published checksums. Provider request IDs were removed from the logs, and no step reads them.
 
 ```
 uv run python -m prompt_build rebuild --raw path/to/raw --out path/to/rebuild
@@ -30,7 +30,7 @@ uv run python -m prompt_build rebuild --raw path/to/raw --out path/to/rebuild
 
 This runs offline and repeats every step after generation, then compares the result with the published checksums. It prints `rebuild: identical to the release` when every file matches. The split files are written to `path/to/rebuild/main/release/`.
 
-Recorded rather than recomputed: the generator's replies, the pre-screen model's replies, and the person's decisions (no pairs judged the same scene in the threshold check, and no removals in the round 1 spot check).
+Recorded rather than recomputed: the generator's replies, the review model's replies, and the author's decisions (no pairs judged the same scene in the threshold check, and no removals in the round 1 spot check).
 
 The raw folder is written from the full working records by:
 

@@ -11,7 +11,7 @@ pip install -r requirements.txt
 playwright install chromium
 ```
 
-`render.py` needs a Chromium build; instead of `playwright install chromium` you can set `PLAYWRIGHT_CHANNEL=msedge` to use an installed Edge. `sample.py` and `render.py` use the reward's code gates, `environments/isometric_scenes/svg_scoring/gates.py` in this repository, so run them from a full checkout.
+`render.py` needs a Chromium build; instead of `playwright install chromium` you can set `PLAYWRIGHT_CHANNEL=msedge` to use an installed Edge. `sample.py` uses the reward's code gates, `environments/isometric_scenes/svg_scoring/gates.py` in this repository, so run it from a full checkout. `render.py` renders the SVGs that `sample.py` saves.
 
 ## Commands
 

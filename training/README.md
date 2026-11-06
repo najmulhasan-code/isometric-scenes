@@ -6,7 +6,7 @@ The RL job for Qwen3.5-4B on the [isometric-scenes](https://app.primeintellect.a
 
 You need the [Prime CLI](https://github.com/PrimeIntellect-ai/prime-cli), logged in, with an SSH key set by `prime config set-ssh-key-path` and its public half added on the Prime dashboard. `launch.sh` also uses ssh, scp, tar and Python 3.
 
-Create `training/secrets.env` with `PRIME_API_KEY`, `HF_TOKEN`, `HF_REPO`, `RENDER_IMAGE` and `WANDB_API_KEY` as `KEY=value` lines, and give it mode 600 (`chmod 600 training/secrets.env`). The job stops if the mode is different. `HF_REPO` must be a private Hugging Face model repository, which the job creates if needed and checks before training. `RENDER_IMAGE` is the renderer image reference that `prime images push` prints (see the [environment README](../environments/isometric_scenes/README.md)). The file is ignored by git. Then, from the repository root:
+Create `training/secrets.env` with `PRIME_API_KEY`, `HF_TOKEN`, `HF_REPO`, `RENDER_IMAGE` and `WANDB_API_KEY` as `KEY=value` lines, and give it mode 600 (`chmod 600 training/secrets.env`). The copy on the pod is also set to mode 600, and the job stops if its mode is different. `HF_REPO` must be a private Hugging Face model repository, which the job creates if needed and checks before training. `RENDER_IMAGE` is the renderer image reference that `prime images push` prints (see the [environment README](../environments/isometric_scenes/README.md)). The file is ignored by git. Then, from the repository root:
 
 ```
 bash training/launch.sh
