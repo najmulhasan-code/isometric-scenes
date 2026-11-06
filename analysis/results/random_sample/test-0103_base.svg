@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style>
+      .floor { fill: #5d4e37; }
+      .wall { fill: #8ca5aa; }
+      .window { fill: #9bc6d2; }
+      .counter { fill: #8d6e63; stroke: #3e2723; stroke-width: 2; }
+      .rack { fill: #a1887f; stroke: #5d4037; stroke-width: 2; }
+      .pot { fill: #d7ccc8; stroke: #5d4037; stroke-width: 3; }
+      .pot-line { stroke: #3e2723; fill: none; }
+      .spice { fill: #eac076; stroke: #3e2723; stroke-width: 2; }
+      .spice-hole { fill: #3e2723; }
+      .lid { fill: #a1887f; stroke: #5d4037; stroke-width: 2; }
+      .mug { fill: #cfd8dc; stroke: #5d4037; stroke-width: 2; }
+      .mug-scale { fill: #b0bec5; stroke: #5d4037; stroke-width: 0.5; }
+      .steam { fill: #ffffff; opacity: 0.8; }
+      .board { fill: #263238; stroke: #cfd8dc; stroke-width: 2; }
+      .mold { fill: #007519; text-anchor: middle; }
+      .leg { stroke: #5d4037; stroke-width: 6; stroke-linecap: round; }
+      .ground { fill: #4e342e; }
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes steam {
+        0% { transform: translateY(0) scale(1); opacity: 0.8; }
+        100% { transform: translateY(-40px) scale(1.5); opacity: 0; }
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-3px); }
+      }
+      .wrap { animation: rotate 8s linear infinite; }
+      .s1 { animation: steam 1.5s infinite ease-in-out; }
+      .s2 { animation: steam 2.2s infinite ease-in-out .6s; }
+      .s3 { animation: steam 1.8s infinite ease-in-out 1s; }
+      .floating { animation: float 2s infinite ease-in-out; }
+    </style>
+  </defs>
+
+  <!-- Background/Left Wall -->
+  <rect x="0" y="0" width="160" height="512" class="wall"/>
+  <rect x="0" y="0" width="160" height="160" class="window"/>
+  <rect x="0" y="0" width="160" height="512" class="floor"/> <!-- Left floor base -->
+
+  <!-- Right Wall -->
+  <rect x="352" y="0" width="160" height="512" class="wall"/>
+  
+  <!-- Ground/Floor Floor Plane -->
+  <polygon points="0,512 436,512 472,432 512,512 512,512" class="ground"/>
+  <!-- Imagine the ground extending behind left wall and right wall -->
+  
+  <!-- Sidewalk/Platform Plane -->
+  <polygon points="0,416 436,416 472,336 512,416 512,416" class="floor"/>
+  <polygon points="0,456 436,456 472,376 512,456" class="floor"/> <!-- Top surface area effect -->
+
+  <!-- Center Column -->
+  <polygon points="240,432 336,432 336,336 240,276 240,432" class="wall"/>
+  <polygon points="248,432 328,432 328,336 248,276 248,432" class="floor"/> <!-- Visible floor part of post -->
+
+  <!-- The Rack Group (Rotating) -->
+  <g class="wrap" transform-origin="256 276">
+    <!-- Main Rack Frame -->
+    <rect x="232" y="274" width="48" height="48" class="rack"/>
+    <line x1="236" y1="278" x2="272" y2="278" class="pot-line"/>
+    <line x1="236" y1="298" x2="272" y2="298" class="pot-line"/>
+    <line x1="236" y1="318" x2="272" y2="318" class="pot-line"/>
+    <!-- Legs -->
+    <line x1="236" y1="320" x2="250" y2="420" class="leg" transform="rotate(-2 246 344)"/> <!-- Visual adjustment to fit isometric leg look relative to screen -->
+    <line x1="272" y1="320" x2="296" y2="420" class="leg" transform="rotate(-2 286 344)"/>
+    <!-- Hanging base pot -->
+    <g transform="translate(246, 304)">
+      <path d="M0,0 C20,-40 40,-60 24,-60 L0,0 Z" class="pot"/>
+      <rect x="18" y="-10" width="6" height="14" class="lid"/>
+    </g>
+    <!-- Hanging side pot -->
+    <g transform="translate(272, 304)">
+      <path d="M0,0 C20,-40 40,-60 24,-60 L0,0 Z" class="pot"/>
+      <rect x="18" y="-10" width="6" height="14" class="lid"/>
+    </g>
+    <!-- Hanging top pot -->
+    <g transform="translate(246, 274)">
+      <path d="M0,0 C20,-40 40,-60 24,-60 L0,0 Z" class="pot"/>
+      <rect x="18" y="-10" width="6" height="14" class="lid"/>
+    </g>
+     <!-- Hanging front pot -->
+     <g transform="translate(272, 274)">
+      <path d="M0,0 C20,-40 40,-60 24,-60 L0,0 Z" class="pot"/>
+      <rect x="18" y="-10" width="6" height="14" class="lid"/>
+    </g>
+  </g>
+
+  <!-- The Counter -->
+  <rect x="208" y="296" width="88" height="20" class="counter"/>
+  
+  <!-- The Mug Group -->
+  <g transform="translate(260, 256)">
+    <!-- Skirt/Base -->
+    <polygon points="0,-10 20,0 20,10 0,-10" class="mug" style="opacity:0.8" transform="scale(1.1) rotate(-15)"/>
+    <!-- Handle -->
+    <path d="M-15,-15 Q-30,40 -5,15" class="mug-scale" fill="none" stroke="#5d4037" stroke-width="3" opacity="0.5"/>
+    <!-- Inner part -->
+    <rect x="5" y="-8" width="10" height="16" class="mug"/>
+    <line x1="5" y1="-8" x2="15" y2="-8" class="mug-scale"/>
+    <line x1="5" y1="8" x2="15" y2="8" class="mug-scale"/>
+    <line x1="5" y1="-8" x2="5" y2="8" class="mug-scale"/>
+    <line x1="15" y1="-8" x2="15" y2="8" class="mug-scale"/>
+    <!-- Steam Elements -->
+    <circle cx="-4" cy="-10" r="3" class="steam" id="s1"/>
+    <circle cx="2" cy="-12" r="3" class="steam" id="s2"/>
+    <circle cx="6" cy="-14" r="3" class="steam" id="s3"/>
+  </g>
+
+  <!-- Chalkboard -->
+  <g transform="translate(240, 400)">
+    <rect x="20" y="-40" width="120" height="80" class="board"/>
+    <rect x="20" y="-40" width="120" height="80" class="mold" style="mix-blend-mode: multiply; opacity: 0.9"/>
+    <!-- Text "morning" -->
+    <text x="80" y="-20" class="mold" font-family="serif" font-size="48" fill="white">morning</text>
+  </g>
+</svg>

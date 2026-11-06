@@ -1,0 +1,16 @@
+# Overused words, capped across the dataset.
+whimsical
+nestled
+charming
+enchanting
+vibrant
+serene
+quaint
+tranquil
+picturesque
+breathtaking
+intricate
+delightful
+magical
+captivating
+idyllic

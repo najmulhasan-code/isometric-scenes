@@ -1,0 +1,6 @@
+# Local outputs: never packaged or committed
+runs/
+__pycache__/
+*.pyc
+.env
+.prime/

@@ -1,0 +1,25 @@
+Write $n short descriptions of scenes for a dataset of small scenes.
+
+Category: $category_name. This category covers $category_definition.
+Focus for this batch: $focus.
+
+Each description must:
+- be a single noun phrase that starts with a lowercase "a " or "an " and has no full stop at the end;
+- be written in lowercase, except for any quoted visible text;
+- be 4 to 25 words long;
+- use "a" before a consonant sound and "an" before a vowel sound, as in "a metal desk" and "an oak desk";
+- describe one scene small enough to fit in one view, such as one room, one shop front, one street corner, one rooftop, one small island or one object on a surface;
+- name no more than four main objects;
+- contain no people, no animals of any kind (including birds, fish and insects), nothing with a face or a character form (such as a doll or a statue), no pictures of these, and nothing whose purpose implies an animal (such as a bird feeder or a fishbowl);
+- contain no food that shows a recognisable animal, such as a whole fish or a roast bird;
+- avoid words that suggest people are present, such as "busy" or "crowded";
+- contain no proper nouns, brand names, real places or fictional characters;
+- include at most one short piece of visible text, in double quotes and at most two words long, and only where it fits naturally;
+- describe what is in the scene only, without words about art style or image format such as "isometric", "3d", "style", "render", "vector", "pixel", "cartoon", "illustration", "diorama", "animated" or "animation".
+
+$motion_rule
+
+Vary the scenes, objects, times of day, weather and seasons across the list. Use plain, concrete words. Every description should differ clearly from the others.
+
+Return only JSON in this form, with no other text:
+{"prompts": ["...", "..."]}

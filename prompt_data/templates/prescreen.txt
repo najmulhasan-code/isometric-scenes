@@ -1,0 +1,32 @@
+You are reviewing one text prompt from a dataset. The dataset is used to train a model that draws animated isometric scenes of places and objects. Decide whether the prompt breaks any of the rules below.
+
+Scope. In scope: interiors, shop fronts, streets, rooftops, workspaces, landscapes, islands, vehicles, buildings, food, everyday objects, weather, and plants (trees, flowers, grass, potted plants, mushrooms). Out of scope:
+- humans, including body parts and silhouettes;
+- animals of any kind, including birds, fish and insects;
+- figures with a face or a character form, such as snowmen, scarecrows, humanoid robots and objects drawn with faces;
+- depictions of any of the above inside a scene, such as portraits, posters and statues;
+- objects whose purpose implies an animal, such as a bird feeder, fishbowl, aquarium, pet bed or beehive.
+Vehicles and buildings are in scope and are shown without occupants. Food made from animals is in scope only when no animal form is recognisable: a burger or sliced ham, but not a whole fish or a roast bird.
+
+Categories. Each prompt belongs to the category of its main subject. Where a prompt could fit more than one category, the first matching category in this list wins:
+$category_table
+
+Rules:
+- R3: one scene that fits a single diorama: one room, one shop front, one street corner, one rooftop, one small island, or one object on a surface.
+- R4: at most four main objects.
+- R6: no proper nouns, brand names, real places or copyrighted characters.
+- R8: no out-of-scope element named or implied (for example "busy", "crowded", "customers").
+- R10: the prompt's category, found with the list above, is the category it was generated for.
+- motion: the motion label must be right. "Should show motion" means the prompt names at least one moving element, such as rain falling, steam rising or a fan turning. "Should be still" means it names none. Motion conveyed only by a noun, such as "a waterfall", does not count as a moving element.
+
+The prompt:
+$prompt
+
+Generated for the category: $category_name.
+Motion label: $motion_label.
+
+Answer with one JSON object and nothing else. If the prompt breaks no rule:
+{"verdict": "keep"}
+If it breaks a rule, name the most important one:
+{"verdict": "flag", "rule": "R4", "reason": "one short sentence"}
+The rule must be one of R3, R4, R6, R8, R10 or motion. If you are unsure, flag the prompt and say why.

@@ -1,0 +1,636 @@
+{
+  "answers": {
+    "base": 1440,
+    "trained": 1440
+  },
+  "unscored_answers": {
+    "base": 0,
+    "trained": 2
+  },
+  "intervals": "cluster bootstrap over prompts, 10,000 resamples, seed 0, 95%",
+  "parts": [
+    {
+      "split": "test",
+      "part": "valid SVG",
+      "kind": "code",
+      "denominator": "all scored answers",
+      "base": {
+        "share": 0.5417,
+        "ci95": [
+          0.5052,
+          0.5781
+        ],
+        "k": 520,
+        "n": 960,
+        "prompts": 240
+      },
+      "trained": {
+        "share": 0.9687,
+        "ci95": [
+          0.9571,
+          0.9802
+        ],
+        "k": 928,
+        "n": 958,
+        "prompts": 240
+      }
+    },
+    {
+      "split": "test",
+      "part": "not blank",
+      "kind": "code",
+      "denominator": "all scored answers",
+      "base": {
+        "share": 0.5312,
+        "ci95": [
+          0.4958,
+          0.5667
+        ],
+        "k": 510,
+        "n": 960,
+        "prompts": 240
+      },
+      "trained": {
+        "share": 0.9666,
+        "ci95": [
+          0.9541,
+          0.9781
+        ],
+        "k": 926,
+        "n": 958,
+        "prompts": 240
+      }
+    },
+    {
+      "split": "test",
+      "part": "moves",
+      "kind": "code",
+      "denominator": "all scored answers",
+      "base": {
+        "share": 0.2542,
+        "ci95": [
+          0.225,
+          0.2844
+        ],
+        "k": 244,
+        "n": 960,
+        "prompts": 240
+      },
+      "trained": {
+        "share": 0.9081,
+        "ci95": [
+          0.8874,
+          0.928
+        ],
+        "k": 870,
+        "n": 958,
+        "prompts": 240
+      }
+    },
+    {
+      "split": "test",
+      "part": "scene",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.0647,
+        "ci95": [
+          0.0431,
+          0.0877
+        ],
+        "k": 33,
+        "n": 510,
+        "prompts": 217
+      },
+      "trained": {
+        "share": 0.4622,
+        "ci95": [
+          0.424,
+          0.5005
+        ],
+        "k": 428,
+        "n": 926,
+        "prompts": 240
+      }
+    },
+    {
+      "split": "test",
+      "part": "objects",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.1392,
+        "ci95": [
+          0.1079,
+          0.1732
+        ],
+        "k": 71,
+        "n": 510,
+        "prompts": 217
+      },
+      "trained": {
+        "share": 0.5745,
+        "ci95": [
+          0.5353,
+          0.6141
+        ],
+        "k": 532,
+        "n": 926,
+        "prompts": 240
+      }
+    },
+    {
+      "split": "test",
+      "part": "isometric",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.0157,
+        "ci95": [
+          0.0059,
+          0.0276
+        ],
+        "k": 8,
+        "n": 510,
+        "prompts": 217
+      },
+      "trained": {
+        "share": 0.1015,
+        "ci95": [
+          0.0802,
+          0.1245
+        ],
+        "k": 94,
+        "n": 926,
+        "prompts": 240
+      }
+    },
+    {
+      "split": "test",
+      "part": "composition",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.0608,
+        "ci95": [
+          0.0399,
+          0.0832
+        ],
+        "k": 31,
+        "n": 510,
+        "prompts": 217
+      },
+      "trained": {
+        "share": 0.5302,
+        "ci95": [
+          0.4919,
+          0.5688
+        ],
+        "k": 491,
+        "n": 926,
+        "prompts": 240
+      }
+    },
+    {
+      "split": "test",
+      "part": "no figure",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.9039,
+        "ci95": [
+          0.8748,
+          0.9306
+        ],
+        "k": 461,
+        "n": 510,
+        "prompts": 217
+      },
+      "trained": {
+        "share": 0.959,
+        "ci95": [
+          0.94,
+          0.9752
+        ],
+        "k": 888,
+        "n": 926,
+        "prompts": 240
+      }
+    },
+    {
+      "split": "test",
+      "part": "motion",
+      "kind": "judge",
+      "denominator": "answers that reached the judge, motion prompts",
+      "base": {
+        "share": 0.2528,
+        "ci95": [
+          0.2075,
+          0.2982
+        ],
+        "k": 91,
+        "n": 360,
+        "prompts": 156
+      },
+      "trained": {
+        "share": 0.5749,
+        "ci95": [
+          0.5253,
+          0.6227
+        ],
+        "k": 380,
+        "n": 661,
+        "prompts": 172
+      }
+    },
+    {
+      "split": "test_unseen",
+      "part": "valid SVG",
+      "kind": "code",
+      "denominator": "all scored answers",
+      "base": {
+        "share": 0.5042,
+        "ci95": [
+          0.45,
+          0.5583
+        ],
+        "k": 242,
+        "n": 480,
+        "prompts": 120
+      },
+      "trained": {
+        "share": 0.9708,
+        "ci95": [
+          0.9563,
+          0.9833
+        ],
+        "k": 466,
+        "n": 480,
+        "prompts": 120
+      }
+    },
+    {
+      "split": "test_unseen",
+      "part": "not blank",
+      "kind": "code",
+      "denominator": "all scored answers",
+      "base": {
+        "share": 0.4854,
+        "ci95": [
+          0.4313,
+          0.5396
+        ],
+        "k": 233,
+        "n": 480,
+        "prompts": 120
+      },
+      "trained": {
+        "share": 0.9688,
+        "ci95": [
+          0.9542,
+          0.9812
+        ],
+        "k": 465,
+        "n": 480,
+        "prompts": 120
+      }
+    },
+    {
+      "split": "test_unseen",
+      "part": "moves",
+      "kind": "code",
+      "denominator": "all scored answers",
+      "base": {
+        "share": 0.2625,
+        "ci95": [
+          0.2188,
+          0.3063
+        ],
+        "k": 126,
+        "n": 480,
+        "prompts": 120
+      },
+      "trained": {
+        "share": 0.9187,
+        "ci95": [
+          0.8917,
+          0.9437
+        ],
+        "k": 441,
+        "n": 480,
+        "prompts": 120
+      }
+    },
+    {
+      "split": "test_unseen",
+      "part": "scene",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.103,
+        "ci95": [
+          0.0602,
+          0.1496
+        ],
+        "k": 24,
+        "n": 233,
+        "prompts": 102
+      },
+      "trained": {
+        "share": 0.5935,
+        "ci95": [
+          0.5396,
+          0.6472
+        ],
+        "k": 276,
+        "n": 465,
+        "prompts": 120
+      }
+    },
+    {
+      "split": "test_unseen",
+      "part": "objects",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.1373,
+        "ci95": [
+          0.0881,
+          0.1897
+        ],
+        "k": 32,
+        "n": 233,
+        "prompts": 102
+      },
+      "trained": {
+        "share": 0.6409,
+        "ci95": [
+          0.5905,
+          0.6907
+        ],
+        "k": 298,
+        "n": 465,
+        "prompts": 120
+      }
+    },
+    {
+      "split": "test_unseen",
+      "part": "isometric",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.0258,
+        "ci95": [
+          0.0083,
+          0.0476
+        ],
+        "k": 6,
+        "n": 233,
+        "prompts": 102
+      },
+      "trained": {
+        "share": 0.0839,
+        "ci95": [
+          0.0582,
+          0.1118
+        ],
+        "k": 39,
+        "n": 465,
+        "prompts": 120
+      }
+    },
+    {
+      "split": "test_unseen",
+      "part": "composition",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.0644,
+        "ci95": [
+          0.0359,
+          0.0955
+        ],
+        "k": 15,
+        "n": 233,
+        "prompts": 102
+      },
+      "trained": {
+        "share": 0.671,
+        "ci95": [
+          0.6197,
+          0.7223
+        ],
+        "k": 312,
+        "n": 465,
+        "prompts": 120
+      }
+    },
+    {
+      "split": "test_unseen",
+      "part": "no figure",
+      "kind": "judge",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.927,
+        "ci95": [
+          0.8929,
+          0.9579
+        ],
+        "k": 216,
+        "n": 233,
+        "prompts": 102
+      },
+      "trained": {
+        "share": 0.9763,
+        "ci95": [
+          0.9591,
+          0.9894
+        ],
+        "k": 454,
+        "n": 465,
+        "prompts": 120
+      }
+    },
+    {
+      "split": "test_unseen",
+      "part": "motion",
+      "kind": "judge",
+      "denominator": "answers that reached the judge, motion prompts",
+      "base": {
+        "share": 0.2188,
+        "ci95": [
+          0.1492,
+          0.2961
+        ],
+        "k": 35,
+        "n": 160,
+        "prompts": 71
+      },
+      "trained": {
+        "share": 0.6308,
+        "ci95": [
+          0.5719,
+          0.6899
+        ],
+        "k": 205,
+        "n": 325,
+        "prompts": 84
+      }
+    }
+  ],
+  "distractor_figure_present": [
+    {
+      "split": "test",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.3462,
+        "ci95": [
+          0.2436,
+          0.4483
+        ],
+        "k": 27,
+        "n": 78,
+        "prompts": 32
+      },
+      "trained": {
+        "share": 0.1859,
+        "ci95": [
+          0.1032,
+          0.2774
+        ],
+        "k": 29,
+        "n": 156,
+        "prompts": 40
+      }
+    },
+    {
+      "split": "test",
+      "denominator": "all scored answers",
+      "base": {
+        "share": 0.1688,
+        "ci95": [
+          0.1062,
+          0.2313
+        ],
+        "k": 27,
+        "n": 160,
+        "prompts": 40
+      },
+      "trained": {
+        "share": 0.1824,
+        "ci95": [
+          0.1013,
+          0.2704
+        ],
+        "k": 29,
+        "n": 159,
+        "prompts": 40
+      }
+    },
+    {
+      "split": "test_unseen",
+      "denominator": "answers that reached the judge",
+      "base": {
+        "share": 0.3143,
+        "ci95": [
+          0.2,
+          0.4333
+        ],
+        "k": 11,
+        "n": 35,
+        "prompts": 15
+      },
+      "trained": {
+        "share": 0.1013,
+        "ci95": [
+          0.0375,
+          0.1795
+        ],
+        "k": 8,
+        "n": 79,
+        "prompts": 20
+      }
+    },
+    {
+      "split": "test_unseen",
+      "denominator": "all scored answers",
+      "base": {
+        "share": 0.1375,
+        "ci95": [
+          0.075,
+          0.2
+        ],
+        "k": 11,
+        "n": 80,
+        "prompts": 20
+      },
+      "trained": {
+        "share": 0.1,
+        "ci95": [
+          0.0375,
+          0.175
+        ],
+        "k": 8,
+        "n": 80,
+        "prompts": 20
+      }
+    }
+  ],
+  "by_category": [
+    {
+      "category": "nature_islands",
+      "base": 0.1283,
+      "trained": 0.6133,
+      "prompts": 25
+    },
+    {
+      "category": "space",
+      "base": 0.0898,
+      "trained": 0.5713,
+      "prompts": 100
+    },
+    {
+      "category": "food_drink",
+      "base": 0.0653,
+      "trained": 0.554,
+      "prompts": 25
+    },
+    {
+      "category": "single_objects",
+      "base": 0.0747,
+      "trained": 0.549,
+      "prompts": 25
+    },
+    {
+      "category": "transport",
+      "base": 0.0963,
+      "trained": 0.5363,
+      "prompts": 25
+    },
+    {
+      "category": "home_interiors",
+      "base": 0.0997,
+      "trained": 0.49,
+      "prompts": 25
+    },
+    {
+      "category": "workspaces",
+      "base": 0.0733,
+      "trained": 0.4687,
+      "prompts": 25
+    },
+    {
+      "category": "shops_food_service",
+      "base": 0.0797,
+      "trained": 0.4573,
+      "prompts": 25
+    },
+    {
+      "category": "streets_rooftops",
+      "base": 0.078,
+      "trained": 0.4523,
+      "prompts": 25
+    }
+  ],
+  "by_category_method": "in-scope prompts; mean over prompts of the per-prompt mean"
+}

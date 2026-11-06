@@ -1,0 +1,4 @@
+huggingface_hub==0.24.7
+zstandard==0.25.0
+matplotlib==3.9.2
+playwright==1.64.1

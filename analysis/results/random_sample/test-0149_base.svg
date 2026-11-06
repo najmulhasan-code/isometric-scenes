@@ -1,0 +1,191 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" style="background:#fdf6e3; font-family: sans-serif;">
+  <defs>
+    <!-- Gradients for depth -->
+    <linearGradient id="rugGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8d5524;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6b3f1a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="chandelierGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e6e6e6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#999999;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Shadows -->
+    <filter id="dropShadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="2" dy="2" result="offsetBlur"/>
+      <feComponentTransfer in="offsetBlur">
+        <feFuncA type="linear" slope="0.5" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Sparkle filter -->
+    <filter id="sparkleGlow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+      <feSpecularLighting in="SourceGraphic" surfaceScale="5" specularExponent="20" lighting-color="#ffffff">
+        <fePointLight x="0" y="-100" z="100"/>
+        <feScalarLight color="#ffffff" coefficients="1 1 0 1"/>
+      </feSpecularLighting>
+    </filter>
+  </defs>
+
+  <!-- Floor Platform -->
+  <path d="M-50 510 L560 510 L560 390 L-50 390 Z" fill="#4a4a4a" opacity="0.6" />
+
+  <!-- Area Rug -->
+  <rect x="200" y="200" width="220" height="180" fill="url(#rugGradient)" transform="rotate(-30 290 290)" rx="10" ry="10" />
+  <!-- Rug Border Strip -->
+  <path d="M180 170 L410 170 L425 416 L155 416 Z" fill="#54361b" opacity="0.8" />
+
+  <!-- Screw post for flooring effects -->
+  <defs>
+    <pattern id="screw" x="0" y="0" width="400" height="400" patternUnits="userSpaceOnUse">
+      <circle cx="200" cy="320" r="10" fill="#333" opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" fill="url(#screw)" />
+
+  <!-- Side Table (Lighting Point) -->
+  <g transform="translate(420, 190) rotate(-30)">
+    <!-- Legs -->
+    <path d="M-60 60 L-60 150 L-30 170 L-30 250 Z" fill="#5c4033" stroke="#3e2723" stroke-width="2" />
+    <path d="M60 60 L60 150 L30 170 L30 250 Z" fill="#5c4033" stroke="#3e2723" stroke-width="2" />
+    <!-- Top -->
+    <polygon points="0,65 -60,150 60,150" fill="#5c4033" stroke="#3e2723" stroke-width="2" />
+    <!-- Candle/Lamp on table -->
+    <g transform="translate(0, 40)">
+      <circle cx="30" cy="0" r="25" fill="#f5f5f5" />
+      <circle cx="30" cy="0" r="10" fill="#fff" opacity="0.9" />
+      <ellipse cx="30" cy="0" rx="5" ry="3" fill="#ffeb3b" opacity="0.8" />
+    </g>
+  </g>
+
+  <!-- Armchair Group -->
+  <g transform="translate(100, 220)">
+    <!-- Left Leg -->
+    <path d="M-80 60 L-80 180 L-40 200 L-60 280 Z" fill="#3e2723" />
+    <!-- Right Leg -->
+    <path d="M80 60 L80 180 L40 200 L60 280 Z" fill="#3e2723" />
+    <!-- Center Leg (diagonal connection logic simplified) -->
+    <path d="M-20 200 L-40 180 L-40 120 L-80 60 Z" fill="#3e2723" opacity="0.9" />
+    
+    <!-- Seat -->
+    <path d="M-130 180 Q-60 280 70 180" fill="#8d6e63" stroke="#5d4037" stroke-width="4" />
+    
+    <!-- Backrest -->
+    <path d="M-90 180 L-90 100 L-40 80 L-120 100 Z" fill="#5d4037" opacity="0.9" />
+    
+    <!-- Arms -->
+    <path d="M-130 180 L-160 140" fill="none" stroke="#3e2723" stroke-width="3" />
+    <path d="M70 180 L100 140" fill="none" stroke="#3e2723" stroke-width="3" />
+    
+    <!-- Armchair Frame/Detail -->
+    <rect x="-180" y="110" width="150" height="5" fill="#3e2723" />
+  </g>
+
+  <!-- Chandelier Group -->
+  <g transform="translate(420, 250)" id="chandelierGroup" style="animation: float 4s ease-in-out infinite;">
+    <!-- Suspended Chain -->
+    <path d="M0 -15 L0 -10 L20 -10 L20 -160" stroke="#7f8c8d" stroke-width="6" fill="none" />
+    
+    <!-- Main Holder -->
+    <ellipse cx="0" cy="-160" rx="10" ry="8" fill="#95a5a6" stroke="#5f6c7b" stroke-width="1"/>
+    
+    <!-- Cages/Arms structure -->
+    <g fill="#7f8c8d" stroke="#5f6c7b" stroke-width="2">
+      <!-- Left Cage Arm -->
+      <path d="M-10 -165 L-15 -140 L-40 -140 L-45 -165 Z" />
+      <path d="M5 -165 L10 -155 L15 -165 Z M10 -155 L15 -140 L15 -120 L10 -120 Z" stroke="#aaa" />
+      <!-- Right Cage Arm -->
+      <path d="M10 -165 L15 -140 L40 -140 L35 -165 Z" />
+      <path d="M-5 -165 L0 -140 L0 -160 L-5 -155 Z M0 -155 L0 -120 L-10 -120 L-5 -120 Z" stroke="#aaa" />
+      <!-- Center/Top Filament -->
+      <path d="M0 -170 L0 -100" stroke="#e0e0e0" stroke-width="1" opacity="0.8"/>
+    </g>
+
+    <!-- Light Bulbs (Multiple hanging) -->
+    <g transform="translate(-35, -135)">
+      <circle cx="0" cy="0" r="12" fill="#eee" stroke="#bbb" stroke-width="1" filter="url(#sparkleGlow)"/>
+      <path d="M-12 0 L-22 -5 M12 0 L22 -5 M0 -12 L0 -22" fill="#ddd" opacity="0.9" stroke="#bbb"/>
+      <!-- Glow -->
+      <circle cx="0" cy="0" r="20" fill="#fffad1" opacity="0.6" filter="url(#dropShadow)"/>
+    </g>
+    <g transform="translate(35, -115)">
+      <circle cx="0" cy="0" r="12" fill="#eee" stroke="#bbb" stroke-width="1" filter="url(#sparkleGlow)"/>
+      <path d="M-12 0 L-22 -5 M12 0 L22 -5 M0 -12 L0 -22" fill="#ddd" opacity="0.9" stroke="#bbb"/>
+      <circle cx="0" cy="0" r="20" fill="#fffad1" opacity="0.6" filter="url(#dropShadow)"/>
+    </g>
+    <g transform="translate(0, -155)">
+      <circle cx="0" cy="0" r="15" fill="#eee" stroke="#bbb" stroke-width="1" filter="url(#sparkleGlow)"/>
+      <path d="M-15 0 L-25 -5 M15 0 L25 -5 M0 -15 L0 -25" fill="#ddd" opacity="0.9" stroke="#bbb"/>
+      <circle cx="0" cy="0" r="25" fill="#fffad1" opacity="0.6" filter="url(#dropShadow)"/>
+    </g>
+
+    <!-- Candle on a small support within chandelier -->
+    <g transform="translate(0, -90)">
+       <rect x="-5" y="-60" width="10" height="60" fill="#5d4037"/>
+       <circle cx="0" cy="40" r="10" fill="#fff9c4" opacity="0.8" filter="url(#sparkleGlow)"/>
+       <ellipse cx="0" cy="30" rx="3" ry="2" fill="#ffeb3b" opacity="0.8"/>
+       <circle cx="0" cy="40" r="15" fill="#fff" opacity="0.5" filter="url(#dropShadow)"/>
+    </g>
+    
+    <!-- Chain connection for the candles -->
+    <line x1="0" y1="-120" x2="0" y2="-160" stroke="#7f8c8d" stroke-width="2"/>
+  </g>
+
+  <!-- Animations -->
+  <style>
+    @keyframes float {
+      0%, 100% { transform: translate(420, 250) rotate(-30deg) translateY(0); }
+      50% { transform: translate(420, 250) rotate(-30deg) translateY(-5px); }
+    }
+    
+    @keyframes flicker {
+      0%, 100% { opacity: 1; transform: scale(1); filter: url(#sparkleGlow); }
+      50% { opacity: 0.9; transform: scale(0.98); }
+      95%, 97% { opacity: 0.6; }
+      96.5% { opacity: 0.8; }
+    }
+
+    /* Candle specific animation */
+    .flame-center { animation: flicker 2s infinite; }
+    .flame-side-left { animation: flicker 3s infinite 0.5s; }
+    .flame-side-right { animation: flicker 2.5s infinite 1.2s; }
+    .smoke { animation: smoke 4s infinite; opacity: 0.6; }
+
+    @keyframes smoke {
+      0%, 100% { transform: translateY(0) scale(1); opacity: 0.3; }
+      10% { transform: translateY(10px) scale(1.1); }
+      20% { transform: translateY(-5px) scale(1.2); }
+      30% { transform: translateY(5px) scale(1.1); }
+      40% { transform: translateY(-10px) scale(1.2); opacity: 0.5; }
+      50% { transform: translateY(0) scale(1); opacity: 0.3; }
+    }
+  </style>
+
+  <!-- Animated Smoke & Flames Overlay (Top Layer) -->
+  <g id="fxLayer">
+    <!-- Main Flame -->
+    <path d="M0 -10 L0 -40 L-15 -50 L0 -45 L15 -50 Z" transform="translate(0, 35)" fill="#ffeb3b" opacity="0.8" filter="url(#sparkleGlow)" class="flame-center"/>
+    <circle cx="0" cy="-40" r="25" fill="#fff" opacity="0.6" filter="url(#dropShadow)"/>
+    
+    <!-- Left Flame -->
+    <path d="M0 -10 L0 -35 L-10 -50 M0 -10 L0 -35 L10 -50" transform="translate(15, 45)" fill="#ffeb3b" opacity="0.7" class="flame-side-left"/>
+    <circle cx="0" cy="-35" r="18" fill="#fff" opacity="0.5" transform="translate(-5, 0)"/>
+    
+    <!-- Right Flame -->
+    <path d="M0 -10 L0 -35 L-10 -50 M0 -10 L0 -35 L10 -50" transform="translate(15, 48)" fill="#ffeb3b" opacity="0.7" class="flame-side-right"/>
+    <circle cx="0" cy="-35" r="18" fill="#fff" opacity="0.5" transform="translate(5, 0)"/>
+
+    <!-- Smoke Particles -->
+    <circle cx="-10" cy="0" r="8" fill="#ddd" opacity="0.4" class="smoke"/>
+    <circle cx="10" cy="0" r="6" fill="#ddd" opacity="0.3" class="smoke"/>
+    <circle cx="-5" cy="5" r="5" fill="#ddd" opacity="0.3" class="smoke"/>
+  </g>
+
+</svg>

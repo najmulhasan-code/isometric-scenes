@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      @keyframes drift {
+        0%, 100% { transform: translateX(-5px) scaleY(0.8); opacity: 0.6; }
+        50% { transform: translateX(5px) scaleY(1.1); opacity: 0.8; }
+      }
+      @keyframes gentleFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-3px); }
+      }
+      @keyframes flicker {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 0.85; }
+      }
+      @keyframes rise {
+        0% { transform: translateY(0) scale(1); opacity: 0; }
+        30% { opacity: 0.4; }
+        100% { transform: translateY(-60px) scale(1.2); opacity: 0; }
+      }
+      .drift {
+        animation: drift 8s ease-in-out infinite;
+      }
+      .float {
+        animation: gentleFloat 6s ease-in-out infinite;
+      }
+      .flicker {
+        animation: flicker 4s ease-in-out infinite;
+      }
+      .rise {
+        animation: rise 10s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+  <!-- Background with foggy atmosphere -->
+  <rect x="0" y="0" width="512" height="512" fill="#e8f4f8"/>
+  <!-- Isometric floor perspective -->
+  <polygon points="256,400 480,320 480,480 256,512 256,400" fill="#dce6e8" stroke="#c5d8da" stroke-width="3"/>
+  <polygon points="256,400 256,512 56,480 80,320" fill="#dce6e8" stroke="#c5d8da" stroke-width="3"/>
+  <!-- Foggy background elements -->
+  <rect x="20" y="80" width="80" height="20" fill="#f0f8ff" opacity="0.4" class="float"/>
+  <rect x="380" y="70" width="70" height="25" fill="#f0f8ff" opacity="0.3" class="float"/>
+  <rect x="150" y="120" width="90" height="15" fill="#f0f8ff" opacity="0.5" class="float"/>
+  <rect x="320" y="140" width="60" height="18" fill="#f0f8ff" opacity="0.4" class="float"/>
+  <!-- Workshop nook structure -->
+  <rect x="180" y="220" width="150" height="120" fill="#fafaff" stroke="#dbe4eb" stroke-width="4" class="float"/>
+  <rect x="140" y="250" width="30" height="180" fill="#f0f4f7" stroke="#dbe4eb" stroke-width="3" class="float"/>
+  <rect x="340" y="250" width="30" height="80" fill="#f0f4f7" stroke="#dbe4eb" stroke-width="3" class="float"/>
+  <!-- Metal tray -->
+  <rect x="200" y="280" width="110" height="35" fill="#e8e8e8" stroke="#c0c0c0" stroke-width="3" class="flicker"/>
+  <rect x="205" y="285" width="100" height="25" fill="#d6d6d6" stroke="#b8b8b8" stroke-width="2"/>
+  <rect x="205" y="290" width="70" height="10" fill="#c8c8c8" stroke="#b0b0b0" stroke-width="1"/>
+  <!-- Damp soldering iron -->
+  <rect x="260" y="290" width="25" height="40" fill="#6b7c8a" stroke="#4a5a6a" stroke-width="2" class="float"/>
+  <rect x="265" y="295" width="15" height="5" fill="#556677" stroke="#3a4a5a" stroke-width="1"/>
+  <rect x="270" y="300" width="5" height="15" fill="#4a5a6a" stroke="#354555" stroke-width="1"/>
+  <!-- Thin veil of vapor drifting upward -->
+  <ellipse cx="230" cy="260" rx="15" ry="8" fill="white" opacity="0.3" class="rise"/>
+  <ellipse cx="245" cy="250" rx="18" ry="10" fill="white" opacity="0.25" class="rise"/>
+  <ellipse cx="260" cy="270" rx="12" ry="7" fill="white" opacity="0.35" class="rise"/>
+  <ellipse cx="275" cy="265" rx="16" ry="9" fill="white" opacity="0.2" class="rise"/>
+  <ellipse cx="290" cy="275" rx="14" ry="8" fill="white" opacity="0.3" class="rise"/>
+  <ellipse cx="220" cy="255" rx="10" ry="6" fill="white" opacity="0.2" class="rise"/>
+  <ellipse cx="250" cy="245" rx="17" ry="11" fill="white" opacity="0.28" class="rise"/>
+  <ellipse cx="280" cy="280" rx="13" ry="7.5" fill="white" opacity="0.32" class="rise"/>
+  <ellipse cx="215" cy="260" rx="11" ry="6.5" fill="white" opacity="0.22" class="rise"/>
+  <ellipse cx="285" cy="268" rx="15" ry="8.5" fill="white" opacity="0.27" class="rise"/>
+</svg>

@@ -1,0 +1,26 @@
+{
+  "still.svg": {
+    "not_blank": true,
+    "moves": false
+  },
+  "smil.svg": {
+    "not_blank": true,
+    "moves": true
+  },
+  "css.svg": {
+    "not_blank": true,
+    "moves": true
+  },
+  "flash.svg": {
+    "not_blank": true,
+    "moves": false
+  },
+  "blank.svg": {
+    "not_blank": false,
+    "moves": false
+  },
+  "dense.svg": {
+    "not_blank": true,
+    "moves": true
+  }
+}

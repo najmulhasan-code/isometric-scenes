@@ -1,0 +1,10 @@
+# Example phrases for the distractor template. One is drawn per request with
+# the request seed, and {element} is filled with the request's last drawn element.
+with {element} nearby
+and {element} in the corner
+where {element} rests close by
+with {element} at the far end
+and {element} off to one side
+where {element} sits in the shade
+with {element} near the edge
+and {element} beside it

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      @keyframes gentleRotate {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(2deg); }
+      }
+      @keyframes gentleTilt {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-2px); }
+      }
+      @keyframes subtlePulse {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 1; }
+      }
+      @keyframes gentleBounce {
+        0%, 100% { transform: rotate(-1deg); }
+        50% { transform: rotate(1deg); }
+      }
+      .bench {
+        animation: gentleTilt 6s ease-in-out infinite;
+      }
+      .microscope {
+        animation: gentleRotate 8s ease-in-out infinite;
+      }
+      .petriDish {
+        animation: subtlePulse 4s ease-in-out infinite;
+      }
+      .testTubeRack {
+        animation: gentleBounce 5s ease-in-out infinite;
+      }
+      .label {
+        animation: gentleRotate 12s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect x="0" y="0" width="512" height="512" fill="#e8f4f8"/>
+  <!-- Isometric Lab Bench -->
+  <g class="bench">
+    <polygon points="256,80 420,140 420,280 256,340 84,280 84,140" fill="#f5f5f5" stroke="#d0d0d0" stroke-width="4"/>
+    <rect x="120" y="280" width="272" height="10" fill="#e0e0e0" stroke="#c0c0c0" stroke-width="3"/>
+    <rect x="100" y="300" width="312" height="6" fill="#d5d5d5" stroke="#b0b0b0" stroke-width="2"/>
+  </g>
+  <!-- Microscope -->
+  <g class="microscope">
+    <rect x="180" y="120" width="40" height="60" fill="#fff8dc" stroke="#ffdab9" stroke-width="3"/>
+    <rect x="190" y="100" width="20" height="25" fill="#fff8dc" stroke="#ffdab9" stroke-width="3"/>
+    <rect x="175" y="160" width="50" height="15" fill="#f0e68c" stroke="#daa520" stroke-width="2"/>
+    <rect x="195" y="180" width="30" height="25" fill="#f0e68c" stroke="#daa520" stroke-width="2"/>
+    <rect x="190" y="150" width="10" height="30" fill="#daa520" stroke="#b8860b" stroke-width="2"/>
+    <circle cx="210" cy="130" r="5" fill="#ffdab9" stroke="#dda0dd" stroke-width="2"/>
+  </g>
+  <!-- Petri Dish -->
+  <g class="petriDish">
+    <ellipse cx="320" cy="200" rx="35" ry="25" fill="#fffacd" stroke="#ffdab9" stroke-width="3"/>
+    <rect x="305" y="190" width="20" height="5" fill="#fff0f5" stroke="#ffb6c1" stroke-width="2"/>
+    <ellipse cx="320" cy="195" rx="15" ry="10" fill="#e6e6fa" stroke="#d8b4fe" stroke-width="2"/>
+    <rect x="310" y="200" width="10" height="4" fill="#f0f8ff" stroke="#afeeee" stroke-width="2"/>
+  </g>
+  <!-- Test Tube Rack -->
+  <g class="testTubeRack">
+    <rect x="260" y="220" width="80" height="10" fill="#f0f0f0" stroke="#d0d0d0" stroke-width="3"/>
+    <rect x="260" y="235" width="60" height="8" fill="#e8e8e8" stroke="#c0c0c0" stroke-width="2"/>
+    <!-- Test tubes -->
+    <rect x="270" y="200" width="8" height="40" fill="#ffe4e1" stroke="#ffb6c1" stroke-width="2"/>
+    <rect x="285" y="210" width="8" height="30" fill="#e6e6fa" stroke="#d8b4fe" stroke-width="2"/>
+    <rect x="300" y="205" width="8" height="35" fill="#f0fff0" stroke="#98fb98" stroke-width="2"/>
+    <rect x="315" y="215" width="8" height="25" fill="#f5f5dc" stroke="#deb887" stroke-width="2"/>
+  </g>
+  <!-- Labeled Test Tube -->
+  <g class="label">
+    <rect x="330" y="225" width="25" height="8" fill="#fff5ee" stroke="#ffb6c1" stroke-width="2"/>
+    <rect x="335" y="235" width="15" height="3" fill="#fff0f5" stroke="#ffb6c1" stroke-width="1"/>
+    <rect x="338" y="245" width="9" height="2" fill="#ffe4e1" stroke="#ffb6c1" stroke-width="1"/>
+  </g>
+  <!-- Additional lab elements -->
+  <rect x="90" y="180" width="20" height="15" fill="#e6e6fa" stroke="#d8b4fe" stroke-width="2"/>
+  <rect x="95" y="195" width="10" height="3" fill="#f0f8ff" stroke="#afeeee" stroke-width="1"/>
+  <rect x="115" y="175" width="15" height="12" fill="#f0fff0" stroke="#98fb98" stroke-width="2"/>
+  <rect x="120" y="185" width="8" height="2" fill="#ffffff" stroke="#98fb98" stroke-width="1"/>
+</svg>

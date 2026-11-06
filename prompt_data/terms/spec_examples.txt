@@ -1,0 +1,8 @@
+# Prompts used as examples in the build rules. They are kept out of the dataset.
+a rooftop with a water tower at sunset
+a small kitchen with a kettle and steam rising from the spout
+a whole city at night
+a busy train platform
+an isometric bakery in SVG
+a bakery counter with bread on wooden shelves
+a bakery counter with a cat asleep by the till and bread on wooden shelves

@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      @keyframes gentleWave {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(5px); }
+      }
+      @keyframes lightGlow {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 1; }
+      }
+      @keyframes snowFall {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(3px); }
+      }
+      @keyframes doorOpenClose {
+        0%, 100% { transform: rotate(0deg); }
+        20% { transform: rotate(-15deg); }
+        40% { transform: rotate(0deg); }
+        60% { transform: rotate(-8deg); }
+        80% { transform: rotate(0deg); }
+      }
+      @keyframes iceShimmer {
+        0%, 100% { filter: brightness(1) blur(0px); }
+        25% { filter: brightness(1.1) blur(1px); }
+        75% { filter: brightness(0.9) blur(0.5px); }
+      }
+      .wave-animation {
+        animation: gentleWave 6s ease-in-out infinite;
+      }
+      .light-animation {
+        animation: lightGlow 4s ease-in-out infinite;
+      }
+      .snow-animation {
+        animation: snowFall 8s ease-in-out infinite;
+      }
+      .door-animation {
+        animation: doorOpenClose 12s ease-in-out infinite;
+      }
+      .ice-shimmer {
+        animation: iceShimmer 5s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+  <!-- Background sky with snow -->
+  <rect x="0" y="0" width="512" height="512" fill="#e8f4f8"/>
+  <!-- Falling snowflakes -->
+  <g class="snow-animation">
+    <circle cx="50" cy="80" r="2" fill="white" opacity="0.7"/>
+    <circle cx="70" cy="90" r="1.5" fill="white" opacity="0.6"/>
+    <circle cx="90" cy="75" r="2" fill="white" opacity="0.8"/>
+    <circle cx="110" cy="100" r="1.5" fill="white" opacity="0.5"/>
+    <circle cx="130" cy="85" r="2" fill="white" opacity="0.7"/>
+    <circle cx="150" cy="95" r="1.5" fill="white" opacity="0.6"/>
+    <circle cx="170" cy="80" r="2" fill="white" opacity="0.8"/>
+    <circle cx="190" cy="105" r="1.5" fill="white" opacity="0.5"/>
+    <circle cx="210" cy="90" r="2" fill="white" opacity="0.7"/>
+    <circle cx="230" cy="100" r="1.5" fill="white" opacity="0.6"/>
+    <circle cx="250" cy="85" r="2" fill="white" opacity="0.8"/>
+    <circle cx="270" cy="95" r="1.5" fill="white" opacity="0.5"/>
+    <circle cx="290" cy="80" r="2" fill="white" opacity="0.7"/>
+    <circle cx="310" cy="105" r="1.5" fill="white" opacity="0.6"/>
+    <circle cx="330" cy="90" r="2" fill="white" opacity="0.8"/>
+    <circle cx="350" cy="100" r="1.5" fill="white" opacity="0.5"/>
+    <circle cx="370" cy="85" r="2" fill="white" opacity="0.7"/>
+    <circle cx="390" cy="95" r="1.5" fill="white" opacity="0.6"/>
+    <circle cx="410" cy="80" r="2" fill="white" opacity="0.8"/>
+    <circle cx="430" cy="105" r="1.5" fill="white" opacity="0.5"/>
+    <circle cx="450" cy="90" r="2" fill="white" opacity="0.7"/>
+  </g>
+  <!-- Ice-covered beach area -->
+  <polygon points="0,200 150,220 350,200 512,180 512,350 0,370" fill="#f0f8ff" class="ice-shimmer"/>
+  <!-- Snow-covered sand stripes -->
+  <g class="ice-shimmer">
+    <rect x="20" y="210" width="120" height="8" fill="#e8f4f8" opacity="0.8"/>
+    <rect x="140" y="220" width="120" height="8" fill="#e3f8ff" opacity="0.7"/>
+    <rect x="260" y="215" width="120" height="8" fill="#e8f4f8" opacity="0.8"/>
+    <rect x="380" y="225" width="120" height="8" fill="#e3f8ff" opacity="0.7"/>
+    <rect x="50" y="230" width="120" height="6" fill="#e8f4f8" opacity="0.6"/>
+    <rect x="170" y="240" width="120" height="6" fill="#e3f8ff" opacity="0.5"/>
+    <rect x="290" y="235" width="120" height="6" fill="#e8f4f8" opacity="0.6"/>
+    <rect x="410" y="245" width="120" height="6" fill="#e3f8ff" opacity="0.5"/>
+  </g>
+  <!-- Ice formations -->
+  <g class="ice-shimmer">
+    <polygon points="80,180 95,170 105,180 98,190" fill="#e0f0ff" opacity="0.7"/>
+    <polygon points="180,190 195,180 205,190 198,200" fill="#e8f8ff" opacity="0.6"/>
+    <polygon points="280,175 295,165 305,175 298,185" fill="#e0f0ff" opacity="0.7"/>
+    <polygon points="380,195 395,185 405,195 398,205" fill="#e8f8ff" opacity="0.6"/>
+    <polygon points="120,200 135,190 145,200 138,210" fill="#e0f0ff" opacity="0.5"/>
+    <polygon points="220,210 235,200 245,210 238,220" fill="#e8f8ff" opacity="0.4"/>
+  </g>
+  <!-- Cool blue ice patches -->
+  <rect x="30" y="200" width="40" height="25" fill="#d4f0ff" opacity="0.6" class="ice-shimmer"/>
+  <rect x="160" y="215" width="35" height="20" fill="#c8ecff" opacity="0.5" class="ice-shimmer"/>
+  <rect x="310" y="205" width="40" height="25" fill="#d4f0ff" opacity="0.6" class="ice-shimmer"/>
+  <rect x="400" y="220" width="35" height="20" fill="#c8ecff" opacity="0.5" class="ice-shimmer"/>
+  <!-- Gentle wave motion at water edge -->
+  <g class="wave-animation">
+    <polygon points="0,350 30,345 60,350 90,340 120,345 150,350 180,342 210,345 240,350 270,348 300,350 330,345 360,350 390,347 420,350 450,348 512,350" fill="#b8e8ff" opacity="0.4"/>
+    <polygon points="10,355 40,350 70,355 100,345 130,350 160,352 190,347 220,350 250,353 280,349 310,350 340,351 370,348 400,350 430,352 460,349 512,350" fill="#a8d8ff" opacity="0.3"/>
+  </g>
+  <!-- Steel igloo door (compact, upright) -->
+  <g class="door-animation light-animation">
+    <!-- Door base -->
+    <rect x="280" y="260" width="50" height="30" fill="#708090" stroke="#4a5a6a" stroke-width="3"/>
+    <!-- Door panel -->
+    <rect x="285" y="265" width="40" height="20" fill="#607080" opacity="0.9"/>
+    <!-- Door frame -->
+    <rect x="275" y="255" width="60" height="15" fill="#506070" stroke="#3a4a5a" stroke-width="2"/>
+    <!-- Door handle -->
+    <circle cx="310" cy="275" r="5" fill="#c0c0c0" stroke="#a0a0a0" stroke-width="2"/>
+    <!-- Door hinge -->
+    <rect x="270" y="260" width="8" height="25" fill="#2a3a4a" stroke="#1a2a3a" stroke-width="2"/>
+    <!-- Door detail (window-like) -->
+    <rect x="290" y="270" width="20" height="10" fill="#b0d0ff" opacity="0.6"/>
+    <!-- Steel sheen -->
+    <rect x="286" y="266" width="38" height="18" fill="none" stroke="#90a0b0" stroke-width="1" opacity="0.4"/>
+  </g>
+  <!-- Icicles near the door -->
+  <g class="ice-shimmer">
+    <polygon points="270,255 260,270 265,265" fill="#e0f0ff" opacity="0.7"/>
+    <polygon points="295,258 285,275 290,270" fill="#d0e0ff" opacity="0.6"/>
+    <polygon points="320,262 310,278 315,273" fill="#e0f0ff" opacity="0.5"/>
+  </g>
+  <!-- Snow drift near door -->
+  <polygon points="260,250 280,250 275,240 265,245" fill="#f5faff" opacity="0.8" class="snow-animation"/>
+  <!-- Ambient ice glow around scene -->
+  <circle cx="256" cy="280" r="60" fill="none" stroke="#b0e0ff" stroke-width="2" opacity="0.3" class="light-animation"/>
+  <circle cx="256" cy="280" r="40" fill="none" stroke="#a0d0ff" stroke-width="1" opacity="0.2" class="light-animation"/>
+</svg>

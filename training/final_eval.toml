@@ -1,0 +1,74 @@
+# Final evaluation: one model, one seed.
+#
+# run_all.sh serves the base model with `uv run inference`, LoRA enabled and
+# otherwise identical settings, on GPU 0 (port 8000) and on GPU 1 (port 8001)
+# at the same time; GPU 1 also loads the chosen adapter. The base lane requests
+# "<model>-base", the trained lane "<model>" (the adapter's name). For each it runs
+#   uv run --no-sync eval @ final_eval.toml @ seed_<s>.toml --model <served name> \
+#       --client.base-url http://localhost:<port>/v1 --run.name seed<s> \
+#       --output-dir <dir> --no-monitors.prime
+# for seeds 0 to 3, so every prompt of `test` and `test_unseen` is answered
+# 4 times with fixed seeds. seed_<s>.toml holds only `[sampling] seed = <s>`.
+#
+# The answers are generated once, here, and scored online by the training
+# judge. rescore.py then scores the same stored answers with the evaluation
+# judge (verifiers Task.rescore), so both judges see identical SVGs and frames.
+#
+# Field names: prime-rl 35fcb52, packages/prime-rl-configs/src/prime_rl/configs/eval.py.
+
+model = "Qwen/Qwen3.5-4B"
+group_size = 1
+dashboard = false
+
+[client]
+base_url = "http://localhost:8000/v1"
+# The local vLLM server needs no key (verifiers configs/client.py:107-118).
+api_key_var = "VLLM_API_KEY"
+
+# Two of these runs go at once, one per model, 128 rollouts (and render
+# sandboxes) in flight each. The lower bound lets the controller adapt to the
+# vLLM server's load (eval.py:80-83).
+[concurrency]
+min_inflight = 32
+max_inflight = 128
+
+# The sampling of [orchestrator.eval.sampling] in rl.toml: temperature 1.0,
+# top_p 1.0, no top-k, no min-p, at most 8,192 tokens, thinking off. Given
+# explicitly so vLLM does not take the model's generation_config defaults.
+[sampling]
+temperature = 1.0
+top_p = 1.0
+top_k = -1
+min_p = 0.0
+max_tokens = 8192
+chat_template_kwargs = { enable_thinking = false }
+
+[monitors]
+prime = "None"
+wandb = "None"
+
+[monitors.file]
+
+# The training judge. A judge block
+# replaces the taskset default whole, so the sampling (temperature 0, at most
+# 256 tokens, as in isometric_scenes/taskset.py) is given with the model.
+
+[[source]]
+name = "test"
+env.taskset.id = "isometric-scenes"
+env.taskset.split = "test"
+env.taskset.task.judge.model = "google/gemma-3-27b-it"
+env.taskset.task.judge.sampling = { temperature = 0.0, max_tokens = 256 }
+env.taskset.task.max_sandboxes = 128
+env.agent.harness.id = "null"
+env.agent.runtime.type = "subprocess"
+
+[[source]]
+name = "test_unseen"
+env.taskset.id = "isometric-scenes"
+env.taskset.split = "test_unseen"
+env.taskset.task.judge.model = "google/gemma-3-27b-it"
+env.taskset.task.judge.sampling = { temperature = 0.0, max_tokens = 256 }
+env.taskset.task.max_sandboxes = 128
+env.agent.harness.id = "null"
+env.agent.runtime.type = "subprocess"

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <style>
+      .ice { fill: #f0f8ff; stroke: #b0e0e6; stroke-width: 2; }
+      .wood { fill: #8b5a2b; stroke: #4each; stroke-width: 3; }
+      .metal { fill: #a9a9a9; stroke: #555; stroke-width: 2; }
+      .path { fill: #fffdf0; stroke: #e6e6c0; stroke-width: 4; }
+      .snow { opacity: 0.9; }
+    </style>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <linearGradient id="twilight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2b1055;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#753675;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="snowflake" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e6f7ff;stop-opacity:0.8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#twilight)" />
+  <path d="M-50 150 Q256 120 562 150 T800 180 T562 200 T256 180 T-50 150" fill="none" stroke="#4a1c40" stroke-width="2" opacity="0.5" transform="rotate(-10 256 220)" />
+
+  <!-- Snow Flakes (Animated) -->
+  <g class="snow">
+    <!-- Falling flakes with random delays and positions -->
+    <circle cx="100" cy="400" r="3" fill="url(#snowflake)" style="animation: fall 8s linear infinite" />
+    <circle cx="200" cy="450" r="5" fill="url(#snowflake)" style="animation: fall 10s linear infinite 1s" />
+    <circle cx="300" cy="380" r="4" fill="url(#snowflake)" style="animation: fall 6s linear infinite 2s" />
+    <circle cx="400" cy="420" r="2" fill="url(#snowflake)" style="animation: fall 9s linear infinite 3s" />
+    <circle cx="150" cy="480" r="6" fill="url(#snowflake)" style="animation: fall 7s linear infinite 0.5s" />
+    <circle cx="350" cy="460" r="3" fill="url(#snowflake)" style="animation: fall 11s linear infinite 4s" />
+    <circle cx="582" cy="440" r="4" fill="url(#snowflake)" style="animation: fall 8s linear infinite 5s" transform="translate(0,0)" />
+    <circle cx="140" cy="300" r="2" fill="url(#snowflake)" style="animation: fall 6s linear infinite 6s" />
+    <circle cx="450" cy="320" r="3" fill="url(#snowflake)" style="animation: fall 9s linear infinite 0.2s" />
+  </g>
+
+  <!-- Platform / Ground -->
+  <path d="M-50 300 L562 300 L562 450 L-50 450 Z" class="path" />
+  <path d="M-50 450 L562 450 L562 420 L-50 420 Z" class="path" />
+  <path d="M-50 300 L562 300 L562 450 L-50 450 Z" class="path" opacity="0.8" />
+
+  <!-- Frozen Shelter -->
+  <g transform="translate(150, 150)">
+    <!-- Roof Structure -->
+    <polygon points="0,-60 -40,-20 40,-20" fill="#0f4c81" filter="drop-shadow(5px 5px 5px #000)" />
+    <polygon points="0,-60 -35,-15 35,-15" fill="url(#ice)" stroke="#bde0fe" />
+    <polygon points="0,-50 -10,-10 10,-10" fill="url(#ice)" opacity="0.7" />
+    <line x1="-40" y1="-20" x2="-35" y2="-15" stroke="#bde0fe" stroke-width="2" opacity="0.5" />
+    <line x1="40" y1="-20" x2="35" y2="-15" stroke="#bde0fe" stroke-width="2" opacity="0.5" />
+    <line x1="0" y1="-60" x2="0" y2="-50" stroke="#bde0fe" stroke-width="1" />
+    <!-- Frost details on shelter -->
+    <path d="M-30 -40 Q-20 -10 -10 -20" stroke="#fff" stroke-width="1" opacity="0.6" fill="none" />
+    <path d="M10 -40 Q20 -10 30 -20" stroke="#fff" stroke-width="1" opacity="0.6" fill="none" />
+    <circle cx="0" cy="-30" r="2" fill="#fff" opacity="0.7" />
+  </g>
+
+  <!-- Lone Bench -->
+  <g transform="translate(380, 250)">
+    <!-- Slats (Animated slightly) -->
+    <rect x="0" y="0" width="40" height="5" fill="#5d4037" opacity="0.9" style="animation: sway 4s infinite ease-in-out" />
+    <rect x="0" y="15" width="38" height="5" fill="#5d4037" opacity="0.9" style="animation: swayX 5s infinite ease-in-out reverse" />
+    <rect x="0" y="30" width="40" height="5" fill="#5d4037" opacity="0.9" style="animation: sway 3s infinite ease-in-out" />
+    <rect x="0" y="45" width="38" height="5" fill="#5d4037" opacity="0.9" style="animation: swayX 4s infinite ease-in-out reverse" />
+    
+    <!-- Legs -->
+    <line x1="0" y1="20" x2="0" y2="50" stroke="#3e2723" stroke-width="4" />
+    <line x1="40" y1="20" x2="40" y2="50" stroke="#3e2723" stroke-width="4" />
+    <line x1="10" y1="20" x2="10" y2="55" stroke="#3e2723" stroke-width="3" />
+    <line x1="30" y1="20" x2="30" y2="55" stroke="#3e2723" stroke-width="3" />
+    <!--_edges line -->
+    
+    <!-- Swirl effect near bench -->
+    <g class="snow">
+      <circle cx="55" cy="25" r="1" fill="white" style="animation: spin 2s linear infinite 0.5s" />
+      <circle cx="85" cy="45" r="1.5" fill="white" style="animation: spin 2.5s linear infinite 1s" />
+      <circle cx="35" cy="50" r="1" fill="white" style="animation: spin 1.8s linear infinite 1.2s" />
+    </g>
+  </g>
+
+  <!-- Subtle ground snow accumulation -->
+  <path d="m200 400 20 5 -15 20 15 5" fill="white" opacity="0.3">
+    <animate attributeName="d" values="m200 400 20 5 -15 20 15 5; m200 400 20 5 10 -15 15 5; m200 400 20 5 -15 20 15 5" dur="10s" repeatCount="indefinite" />
+  </path>
+  <path d="m450 380 25 5 -20 25 20 5" fill="white" opacity="0.2" style="mix-blend-mode: multiply;">
+    <animate attributeName="opacity" values="0.2;0.1;0.2" dur="6s" repeatCount="indefinite" />
+  </path>
+
+  <!-- Snow definition for SMIL animation -->
+  <style>
+    @keyframes fall {
+      0% { transform: translateY(-10px); opacity: 0.8; }
+      100% { transform: translateY(200px); opacity: 0; }
+    }
+    @keyframes sway {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes swayX {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(5px); }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg) translateX(0); }
+      50% { transform: rotate(180deg) translateX(-10px); }
+      100% { transform: rotate(360deg) translateX(0); }
+    }
+  </style>
+</svg>

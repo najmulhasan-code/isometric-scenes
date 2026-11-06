@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      @keyframes steamBubble {
+        0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+        50% { transform: translateY(-15px) scale(1.2); opacity: 0.4; }
+      }
+      @keyframes secondsBlink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+      @keyframes gentleGlow {
+        0%, 100% { filter: drop-shadow(0 0 2px rgba(255, 223, 186, 0.5)); }
+        50% { filter: drop-shadow(0 0 5px rgba(255, 223, 186, 0.8)); }
+      }
+      @keyframes teaRipple {
+        0%, 100% { transform: scale(1); }
+        25% { transform: scale(1.05); }
+        75% { transform: scale(1.03); }
+      }
+      .steam-bubble {
+        animation: steamBubble 2s ease-in-out infinite;
+      }
+      .seconds-digit {
+        animation: secondsBlink 1s step-end infinite;
+      }
+      .teacup-glow {
+        animation: gentleGlow 3s ease-in-out infinite;
+      }
+      .tea-ripple {
+        animation: teaRipple 4s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" fill="#e8f4f8"/>
+  <!-- Isometric floor grid -->
+  <polygon points="256,128 416,192 416,336 256,400 96,336 96,192" fill="#f0f7fa" stroke="#cfe6f0" stroke-width="4"/>
+  <polygon points="96,192 256,128 256,272 96,336" fill="none" stroke="#b8e0f2" stroke-width="2"/>
+  <polygon points="256,128 416,192 256,272 96,336" fill="none" stroke="#b8e0f2" stroke-width="2"/>
+  <!-- Teacup container base -->
+  <rect x="144" y="280" width="64" height="20" fill="#f5e6e8" stroke="#e8d5d8" stroke-width="3"/>
+  <!-- Porcelain teacup body -->
+  <rect x="152" y="240" width="48" height="60" fill="#fff8f5" stroke="#f0e0d0" stroke-width="4" class="teacup-glow"/>
+  <!-- Teacup curvature (isometric tilt) -->
+  <polygon points="152,240 168,240 172,260 156,260" fill="#fff5f0" stroke="#f0e0d0" stroke-width="2"/>
+  <polygon points="184,240 200,240 204,260 188,260" fill="#fff5f0" stroke="#f0e0d0" stroke-width="2"/>
+  <!-- Tea liquid inside cup -->
+  <rect x="156" y="255" width="40" height="35" fill="#87ceeb" class="tea-ripple" opacity="0.9"/>
+  <!-- Steaming waves -->
+  <ellipse cx="170" cy="235" rx="8" ry="5" fill="white" opacity="0.7" class="steam-bubble" style="animation-delay: 0s"/>
+  <ellipse cx="186" cy="230" rx="6" ry="4" fill="white" opacity="0.6" class="steam-bubble" style="animation-delay: 0.5s"/>
+  <ellipse cx="172" cy="220" rx="7" ry="4.5" fill="white" opacity="0.75" class="steam-bubble" style="animation-delay: 1s"/>
+  <ellipse cx="188" cy="225" rx="5" ry="3.5" fill="white" opacity="0.55" class="steam-bubble" style="animation-delay: 1.5s"/>
+  <!-- Digital display clock base -->
+  <rect x="320" y="280" width="72" height="22" fill="#f0f0f0" stroke="#d8d8d8" stroke-width="3"/>
+  <!-- Digital display screen -->
+  <rect x="326" y="290" width="60" height="40" fill="#0a0a0a" stroke="#1a1a1a" stroke-width="2"/>
+  <!-- Digit segments (7-segment style for numbers) -->
+  <rect x="332" y="300" width="16" height="8" fill="none" stroke="#ff6b6b" stroke-width="4" stroke-linecap="round" class="seconds_digit"/>
+  <rect x="356" y="300" width="16" height="8" fill="none" stroke="#ff6b6b" stroke-width="4" stroke-linecap="round" class="seconds_digit"/>
+  <rect x="380" y="300" width="16" height="8" fill="none" stroke="#ff6b6b" stroke-width="4" stroke-linecap="round" class="seconds_digit"/>
+  <rect x="332" y="320" width="16" height="8" fill="none" stroke="#ff6b6b" stroke-width="4" stroke-linecap="round" class="seconds_digit"/>
+  <rect x="356" y="320" width="16" height="8" fill="none" stroke="#ff6b6b" stroke-width="4" stroke-linecap="round" class="seconds_digit"/>
+  <rect x="380" y="320" width="16" height="8" fill="none" stroke="#ff6b6b" stroke-width="4" stroke-linecap="round" class="seconds_digit"/>
+  <rect x="332" y="340" width="16" height="8" fill="none" stroke="#ff6b6b" stroke-width="4" stroke-linecap="round" class="seconds_digit"/>
+  <rect x="404" y="320" width="16" height="8" fill="none" stroke="#ff6b6b" stroke-width="4" stroke-linecap="round" class="seconds_digit"/>
+  <!-- Clock glow effect -->
+  <circle cx="376" cy="315" r="18" fill="none" stroke="#ff6b6b" stroke-width="1" opacity="0.3"/>
+  <circle cx="376" cy="315" r="26" fill="none" stroke="#ff6b6b" stroke-width="0.5" opacity="0.2"/>
+  <!-- Decorative elements -->
+  <rect x="240" y="180" width="12" height="12" fill="#ffd4d4" opacity="0.6"/>
+  <rect x="280" y="200" width="10" height="10" fill="#ffebd6" opacity="0.5"/>
+  <rect x="300" y="190" width="8" height="8" fill="#ffe8cc" opacity="0.4"/>
+</svg>

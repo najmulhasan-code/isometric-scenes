@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <style>
+    .blade { transform-origin: 256px 160px; animation: turn 1.7s linear infinite; }
+    @keyframes turn { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+  <rect width="512" height="512" fill="#eef3f8"/>
+  <polygon points="256,200 416,292 256,384 96,292" fill="#7a9e7e"/>
+  <rect x="250" y="160" width="12" height="140" fill="#5b5b5b"/>
+  <g class="blade">
+    <rect x="252" y="100" width="8" height="60" fill="#c0392b"/>
+    <rect x="252" y="160" width="8" height="60" fill="#c0392b"/>
+  </g>
+</svg>

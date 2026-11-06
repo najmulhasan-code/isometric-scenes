@@ -1,0 +1,151 @@
+# Phrases that never count as a match in any term list.
+# Each one names an object, a plant, a colour, a place or a dish that shows
+# no animal form, but contains a listed word. Animal-shaped food, such as
+# gummy bears, is not allowed.
+
+# Out-of-scope list
+angel cake
+angel food cake
+artist s easel
+artist s palette
+baby blue
+baby grand
+baker s rack
+baseball bat
+bear claw
+bear claws
+bird of paradise
+cage lamp
+cage light
+camper van
+cassette player
+cat s eye
+cd player
+chain guard
+chef s knife
+chicken curry
+chicken noodle soup
+chicken salad
+chicken sandwich
+chicken soup
+cliff face
+clock face
+clock hand
+clock hands
+computer mice
+computer mouse
+crab cake
+crab cakes
+cricket bat
+crow s nest
+diving mask
+dog eared
+doll house
+dolls house
+door seal
+dragon fruit
+duck egg
+dust mask
+dvd player
+face cloth
+face towel
+fairy cake
+fairy cakes
+fairy lights
+fairy ring
+family room
+farmer s market
+farmers market
+fire guard
+fish and chips
+fish cake
+fish cakes
+fish fingers
+fish sauce
+fish taco
+fish tacos
+fried chicken
+gaming mouse
+gas mask
+goose neck
+guard rail
+guest bedroom
+guest house
+guest room
+horse chestnut
+horse chestnuts
+hot dog
+hot dogs
+hour hand
+lamb chops
+lightning conductor
+lobster roll
+man made
+media player
+minute hand
+monkey wrench
+monster truck
+mouse pad
+mp3 player
+mud guard
+music player
+nest of tables
+painter s tape
+pigeon holes
+pilot light
+pine silhouette
+pine silhouettes
+ping pong bat
+player piano
+prawn crackers
+record player
+rock face
+rubber seal
+seal stamp
+second hand
+skeleton key
+skyline silhouette
+snake plant
+snake plants
+snorkel mask
+spider plant
+spider plants
+splash guard
+squid ink
+staff room
+student desk
+table tennis bat
+tape player
+tiger lilies
+tiger lily
+tree silhouette
+tree silhouettes
+turkey sandwich
+watch face
+wax seal
+welding mask
+wireless mouse
+
+# Style list
+3d printer
+3d printers
+
+# Motion list
+curling iron
+floating island
+floating islands
+floating shelf
+floating shelves
+flying buttress
+moving boxes
+rocking chair
+rocking chairs
+rolling hills
+rolling pin
+rolling pins
+running shoes
+running track
+sliding door
+sliding doors
+spinning wheel
+spinning wheels

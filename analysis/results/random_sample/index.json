@@ -1,0 +1,113 @@
+{
+  "seed": 0,
+  "n": 12,
+  "split": "test",
+  "answers_seed": 0,
+  "items": [
+    {
+      "row_id": "test-0098",
+      "prompt": "an echoic lab bench holding a microscope, a petri dish, and a labeled test tube rack",
+      "base": "test-0098_base.svg",
+      "base_gate_failures": [
+        "text 'milk' is not a quoted span of the prompt",
+        "text 'h2o' is not a quoted span of the prompt"
+      ],
+      "trained": "test-0098_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0194",
+      "prompt": "an icy polar beach with snow-covered sand, a compact steel igloo door standing upright on the shore",
+      "base": "test-0194_base.svg",
+      "base_gate_failures": [],
+      "trained": "test-0194_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0107",
+      "prompt": "a midday cafe counter displaying a copper coffee urn, a row of glass jars, a vintage scale, and a ceiling fan turning slowly",
+      "base": "test-0107_base.svg",
+      "base_gate_failures": [],
+      "trained": "test-0107_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0010",
+      "prompt": "a porcelain teacup of steaming oolong tea beside a digital display clock whose seconds blink",
+      "base": "test-0010_base.svg",
+      "base_gate_failures": [
+        "text '12' is not a quoted span of the prompt",
+        "text '08' is not a quoted span of the prompt",
+        "text '04' is not a quoted span of the prompt"
+      ],
+      "trained": "test-0010_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0066",
+      "prompt": "a winter twilight platform containing a lone bench, a frosted shelter, and snow swirling in the breeze",
+      "base": "test-0066_base.svg",
+      "base_gate_failures": [],
+      "trained": "test-0066_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0130",
+      "prompt": "a bathroom under a full moon, silvery light on a glass shelf, a hanging lantern swaying, a porcelain sink, a teal towel",
+      "base": "test-0130_base.svg",
+      "base_gate_failures": [],
+      "trained": "test-0130_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0124",
+      "prompt": "an old-fashioned chrome counter with a rotary coffee grinder, a stack of paper cups, and a vintage wall clock",
+      "base": "test-0124_base.svg",
+      "base_gate_failures": [
+        "text '10:10' is not a quoted span of the prompt"
+      ],
+      "trained": "test-0124_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0103",
+      "prompt": "an early-sunrise sidewalk coffee stand with a rotating spice rack, a steaming mug, and a chalkboard reading \"morning\"",
+      "base": "test-0103_base.svg",
+      "base_gate_failures": [],
+      "trained": "test-0103_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0077",
+      "prompt": "a foggy workshop nook with a damp soldering iron, a metal tray, and a thin veil of vapor drifting upward",
+      "base": "test-0077_base.svg",
+      "base_gate_failures": [],
+      "trained": "test-0077_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0122",
+      "prompt": "an afternoon bakery kitchen view with a stainless steel mixer, a tray of golden croissants, and a rolling pin",
+      "base": "test-0122_base.svg",
+      "base_gate_failures": [],
+      "trained": "test-0122_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0091",
+      "prompt": "a minimalist art corner holding an acrylic sheet on a steel stand, a roll of canvas, and a ceiling fan spinning",
+      "base": "test-0091_base.svg",
+      "base_gate_failures": [],
+      "trained": "test-0091_trained.svg",
+      "trained_gate_failures": []
+    },
+    {
+      "row_id": "test-0149",
+      "prompt": "an evening living room illuminated by a candle chandelier, featuring a deep green armchair, a dark wood side table, and a muted area rug",
+      "base": "test-0149_base.svg",
+      "base_gate_failures": [],
+      "trained": "test-0149_trained.svg",
+      "trained_gate_failures": []
+    }
+  ]
+}

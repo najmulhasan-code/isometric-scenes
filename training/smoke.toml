@@ -1,0 +1,26 @@
+# Smoke test: the full run made tiny. Layered on top of rl.toml:
+#   uv run --no-sync rl @ rl.toml @ smoke.toml --output-dir <dir> --run.name smoke
+#
+# TOML files given with `@` are deep-merged left to right (prime-rl
+# docs/configuration.md at commit 35fcb52,
+# "TOML Composition"). Arrays of tables are replaced whole, so this file leaves
+# the source lists alone and changes only the group-level defaults that every
+# source inherits.
+
+# 2 steps of 32 rollouts: 4 prompts x 8.
+max_steps = 2
+
+[orchestrator]
+batch_size = 32
+
+# Checkpoint at step 1; step 2 is the last and is saved at the end of training.
+[ckpt]
+interval = 1
+
+# Validation on the first 8 `val` prompts (4 answers each, as in rl.toml), at
+# steps 0, 1 and 2.
+[orchestrator.eval]
+interval = 1
+
+[orchestrator.eval.select]
+limit = 8

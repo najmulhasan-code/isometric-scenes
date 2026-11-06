@@ -1,0 +1,188 @@
+# Full RL run: Qwen3.5-4B on isometric-scenes, LoRA, prime-rl at 35fcb52.
+#
+# One pod with 2 GPUs: one for the trainer, one for vLLM inference.
+# 150 steps of 128 rollouts (16 prompts x 8) on `train` (1,600 prompts), so
+# 19,200 rollouts in all. Validation on all 88 `val` prompts, 4 answers each, at
+# step 0 (the base model) and every 15 steps, with the training judge; a
+# checkpoint at every validation step, none deleted.
+#
+# Launch from the prime-rl checkout (run_all.sh does this):
+#   uv run --no-sync rl @ rl.toml --output-dir <dir> --run.name full
+#
+# Needed in the environment, never in this file: PRIME_API_KEY (judge and
+# render sandboxes) and RENDER_IMAGE (the render image reference).
+#
+# Field names are checked against prime-rl 35fcb52, packages/prime-rl-configs/
+# src/prime_rl/configs/ (rl.py, orchestrator.py, trainer.py, inference.py), and
+# verifiers 540f40f (the pinned submodule), verifiers/v1/configs/.
+
+max_steps = 150
+# Prompt (system prompt plus scene, under 1k tokens) plus 8,192 completion tokens.
+seq_len = 10240
+# No dashboard daemon on an unattended pod (rl.py:214).
+dashboard = false
+
+[model]
+name = "Qwen/Qwen3.5-4B"
+
+# The default is 8 GPUs per node (shared.py:110); the pod has 2.
+[deployment]
+gpus_per_node = 2
+num_train_gpus = 1
+num_infer_gpus = 1
+
+[inference.vllm]
+max_model_len = 10240
+# Room for 256 sequences in flight (orchestrator.concurrency.max_inflight). Both
+# are vLLM arguments passed through verbatim (configs/inference.py:35-48).
+gpu_memory_utilization = 0.92
+max_num_seqs = 256
+# Validation goes through vLLM's chat completions. With no reasoning parser the
+# reply stays whole in `content`, as on the final-eval servers (run_all.sh), so
+# a stray <think> block is scored and caught, not split off (inference.py:62).
+reasoning_parser = "None"
+
+# LoRA on every linear layer of the language model, rank 32, alpha 64 (the
+# rank and alpha of examples/basic/alphabet-sort/rl.toml, a 4B model). The rl
+# entrypoint takes it under trainer.model (the shared [model] block has no lora
+# field, rl.py:100-105), and turns on LoRA in vLLM with the same rank
+# (rl.py:482-488). Names, from prime-rl's Qwen3.5 model:
+#   full attention    q_proj, k_proj, v_proj, o_proj (models/layers/attn.py:474-476,
+#                     models/qwen3_5/attention.py:36)
+#   Gated DeltaNet    in_proj_qkv, in_proj_z, in_proj_b, in_proj_a, out_proj
+#                     (models/layers/gated_delta_net.py:58-62)
+#   MLP               gate_proj, up_proj, down_proj (models/layers/mlp.py:24-26)
+# The vision encoder's modules (qkv, proj, linear_fc1, linear_fc2) are not named,
+# so it stays frozen; LoRA freezes every non-adapter parameter (prime-rl docs/advanced.md,
+# commit 35fcb52).
+[trainer.model.lora]
+rank = 32
+alpha = 64.0
+dropout = 0.0
+target_modules = [
+    "q_proj", "k_proj", "v_proj", "o_proj",
+    "in_proj_qkv", "in_proj_z", "in_proj_b", "in_proj_a", "out_proj",
+    "gate_proj", "up_proj", "down_proj",
+]
+
+# The rate of prime-rl's 4B LoRA example (examples/basic/alphabet-sort/rl.toml),
+# and about 10x a typical full fine-tuning RL rate of 1e-6, as "LoRA Without
+# Regret" (Schulman et al., Thinking Machines, 2025) recommends for LoRA.
+[trainer.optim]
+lr = 1e-5
+
+# The loss is prime-rl's default (IPO at this commit); the advantage is reward
+# minus the group mean (prime-rl docs/algorithms.md, commit 35fcb52).
+# Not set here on purpose.
+
+# Save a checkpoint at every validation step and keep all of them: no
+# keep_last or keep_interval (rl.py:86-97). The last step (150) is saved at
+# the end of training (trainer/rl/train.py, "Write final checkpoint"). With LoRA
+# the DCP checkpoint holds the whole model state plus the adapter's optimizer
+# state (trainer/ckpt.py, AppState); the adapter alone, in PEFT format, is what
+# the trainer broadcasts each step, and guard.py copies it for every validation
+# step to <run>/adapters/step_N/. Weights reach vLLM through the filesystem,
+# because NCCL broadcast does not support LoRA (rl.py:425-435).
+[ckpt]
+interval = 15
+
+# Metrics go to local files and to W&B (metrics and the resolved config only; the
+# W&B monitor does not upload episodes, monitors/wandb/monitor.py log_episodes).
+# The Prime monitor is off: TOML has no null, and the string "None" turns a
+# monitor off (prime-rl docs/configuration.md, "None"). It needs a team enabled for
+# platform runs (prime-rl docs/training.md, "Prime"; both at commit 35fcb52).
+[monitors]
+prime = "None"
+
+# Needs WANDB_API_KEY in the environment. The run name comes from --run.name.
+[monitors.wandb]
+project = "isometric-scenes-rl"
+
+# metrics.jsonl and the trace stream under <run>/monitors/file/.
+[monitors.file]
+
+[env_vars]
+HF_HUB_DISABLE_TELEMETRY = "1"
+VLLM_NO_USAGE_STATS = "1"
+DO_NOT_TRACK = "1"
+
+[orchestrator]
+batch_size = 128
+
+# Caps rollouts in flight, train and validation together, so at most 256
+# render sandboxes exist at once (orchestrator.py:452); the account allows 1,024.
+# Training is asynchronous: inference generates the next step's rollouts while
+# the trainer updates, and orchestrator.max_staleness (default 8, kept) bounds
+# how many policy versions old a trained token may be (prime-rl docs/algorithms.md at commit 35fcb52,
+# "Async Training & Staleness"; orchestrator.py:565).
+[orchestrator.concurrency]
+max_inflight = 256
+
+# Thinking off for training rollouts, which the orchestrator renders itself.
+# Validation requests skip the renderer and use the chat-completions client
+# (orchestrator.py:217-222, dispatcher.py:505-511), so they carry the same
+# switch as a request field in [orchestrator.eval.sampling].
+[orchestrator.renderer]
+name = "qwen3.5"
+enable_thinking = false
+
+[orchestrator.train]
+group_size = 8
+
+[orchestrator.train.select]
+shuffle = true
+seed = 0
+
+# Untruncated sampling: temperature 1.0, top_p 1.0, no top-k. top_k must be
+# unset here (the field is >= 1, orchestrator.py:51); the train client then
+# sends top_k = -1 and min_p = 0.0 so vLLM does not apply the model's
+# generation_config (verifiers clients/train.py:393-399).
+[orchestrator.train.sampling]
+temperature = 1.0
+top_p = 1.0
+max_completion_tokens = 8192
+
+[[orchestrator.train.source]]
+name = "train"
+env.taskset.id = "isometric-scenes"
+env.taskset.split = "train"
+# The training judge, spelled out with the taskset's own defaults
+# (isometric_scenes/taskset.py, SceneTaskConfig). A judge block replaces the
+# default whole, so its sampling must be given with it.
+env.taskset.task.judge.model = "google/gemma-3-27b-it"
+env.taskset.task.judge.sampling = { temperature = 0.0, max_tokens = 256 }
+env.taskset.task.max_sandboxes = 256
+# One model turn, no tools: the null harness in a local subprocess. The default
+# runtime is a Prime sandbox (verifiers configs/agent.py:44), which this
+# taskset does not need for the policy.
+env.agent.harness.id = "null"
+env.agent.runtime.type = "subprocess"
+
+[orchestrator.eval]
+interval = 15
+# 4 answers per prompt (352 rollouts per validation). With one answer, the
+# reward of 88 prompts at temperature 1.0 is too noisy to choose a checkpoint.
+group_size = 4
+# Step 0 evaluates the base model: this is the baseline.
+skip_first_step = false
+
+# The same distribution as training, given explicitly because chat-completions
+# requests would otherwise take the model's generation_config defaults.
+# Extra keys pass through to the request (verifiers configs/sampling.py:11).
+[orchestrator.eval.sampling]
+temperature = 1.0
+top_p = 1.0
+top_k = -1
+min_p = 0.0
+max_tokens = 8192
+chat_template_kwargs = { enable_thinking = false }
+
+[[orchestrator.eval.source]]
+name = "val"
+env.taskset.id = "isometric-scenes"
+env.taskset.split = "val"
+env.taskset.task.judge.model = "google/gemma-3-27b-it"
+env.taskset.task.judge.sampling = { temperature = 0.0, max_tokens = 256 }
+env.taskset.task.max_sandboxes = 256
+env.agent.harness.id = "null"
+env.agent.runtime.type = "subprocess"

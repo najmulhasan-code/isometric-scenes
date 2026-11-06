@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#000000">
+    <animate attributeName="fill" values="#000000;#ffffff;#000000" dur="1.3s" begin="0s" repeatCount="indefinite"/>
+  </rect>
+  <polygon points="256,120 416,212 256,304 96,212" fill="#d9a066"/>
+  <polygon points="96,212 256,304 256,420 96,328" fill="#a86b3c"/>
+</svg>

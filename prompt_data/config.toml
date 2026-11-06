@@ -1,0 +1,127 @@
+# Settings for building the prompt dataset. The dataset card describes the rules they implement.
+
+spec_version = "2.12"
+base_seed = 20261025
+held_out_category = "space"
+
+# Fixed seed offsets for single random steps. Each must lie
+# between 10000 and 19999 so it cannot collide with stratum, refill or request seeds.
+[seed_offsets]
+slot_table = 10000
+element_type_assignment = 11000
+word_cap = 12000
+element_cap = 13000
+train_audit = 14000
+hand_check = 16000
+example_order = 17000
+threshold_sample = 18000
+
+# Categories in priority order. The definition is used word
+# for word in the templates; the focus items rotate with the request index.
+[[categories]]
+slug = "space"
+name = "space"
+definition = "any scene off Earth or in orbit"
+focus = ["space station interiors", "moon bases", "small planets and asteroids", "spacecraft", "outposts on other planets"]
+
+[[categories]]
+slug = "food_drink"
+name = "food and drink"
+definition = "a dish or drink on a table or tray, no room shown"
+focus = ["hot drinks", "cold drinks", "breakfast dishes", "desserts", "savoury dishes", "snacks"]
+
+[[categories]]
+slug = "single_objects"
+name = "single objects"
+definition = "one object on a surface or plain ground, other than food, drink or a vehicle"
+focus = ["household objects", "tools", "board games and puzzles", "music and media devices", "outdoor objects", "old or antique objects"]
+
+[[categories]]
+slug = "transport"
+name = "transport"
+definition = "a vehicle or a transport stop: platforms, docks, small airports, bus stops, food trucks"
+focus = ["train platforms", "docks and harbours", "small airports and airfields", "roadside stops", "food trucks", "parked vehicles"]
+
+[[categories]]
+slug = "workspaces"
+name = "workspaces"
+definition = "desks, workbenches, workshops, labs, studios"
+focus = ["desks", "workbenches", "small labs", "art and craft studios", "repair benches"]
+
+[[categories]]
+slug = "shops_food_service"
+name = "shops and food service"
+definition = "shops, cafes, restaurant counters and kitchens, market stalls"
+focus = ["cafes", "bakeries", "small shops", "market stalls", "restaurant counters", "restaurant kitchens"]
+
+[[categories]]
+slug = "home_interiors"
+name = "home interiors"
+definition = "rooms of a home, including home kitchens and bathrooms; a desk or workbench is never the main subject"
+focus = ["bedrooms", "living rooms", "home kitchens", "bathrooms", "attics", "hallways and stairs"]
+
+[[categories]]
+slug = "streets_rooftops"
+name = "streets and rooftops"
+definition = "outdoor urban scenes: street corners, alleys, rooftops, small squares, building fronts"
+focus = ["street corners", "alleys", "rooftops", "small squares", "building fronts"]
+
+[[categories]]
+slug = "nature_islands"
+name = "nature and islands"
+definition = "outdoor scenes away from towns: small islands, gardens, campsites, ponds, hills"
+focus = ["small islands", "gardens", "campsites", "ponds and lakes", "hills and meadows", "beaches"]
+
+# Generator access and request settings.
+[generator]
+model = "openai/gpt-oss-120b"
+base_url = "https://api.pinference.ai/api/v1"
+temperature = 1.0
+top_p = 1.0
+reasoning_effort = "low"
+max_tokens = 16384
+items_per_request = 20
+use_json_schema = false
+timeout_seconds = 300
+max_workers = 4
+
+# Model pre-screen of each review round.
+[prescreen]
+model = "anthropic/claude-opus-5.5"
+base_url = "https://api.pinference.ai/api/v1"
+temperature = 0.0
+max_tokens = 2048
+timeout_seconds = 120
+max_workers = 4
+
+# Split quotas. "with_motion" and "without_motion" are per
+# category for in-scope prompts and per split for distractors.
+[splits.train]
+in_scope = { with_motion = 126, without_motion = 54 }
+distractor_kinds = { human = 64, animal = 64, face_figure = 32 }
+distractor_motion = { with_motion = 112, without_motion = 48 }
+
+[splits.val]
+in_scope = { with_motion = 7, without_motion = 3 }
+distractor_kinds = { human = 3, animal = 3, face_figure = 2 }
+distractor_motion = { with_motion = 6, without_motion = 2 }
+
+[splits.test]
+in_scope = { with_motion = 18, without_motion = 7 }
+distractor_kinds = { human = 16, animal = 16, face_figure = 8 }
+distractor_motion = { with_motion = 28, without_motion = 12 }
+
+[splits.test_unseen]
+in_scope = { with_motion = 70, without_motion = 30 }
+distractor_kinds = { human = 8, animal = 8, face_figure = 4 }
+distractor_motion = { with_motion = 14, without_motion = 6 }
+
+# Cleaning and splitting.
+[build]
+jaccard_threshold = 0.6
+cosine_threshold = 0.90
+word_cap_share = 0.10
+element_cap_share = 0.10
+encoder_model = "sentence-transformers/all-MiniLM-L6-v2"
+encoder_revision = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
+audit_size = 200

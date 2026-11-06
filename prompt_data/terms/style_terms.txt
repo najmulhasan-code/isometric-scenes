@@ -1,0 +1,15 @@
+# Format and style terms, which a prompt may not contain.
+isometric
+svg
+vector
+render
+rendered
+rendering
+illustration
+diorama
+pixel
+3d
+animated
+animation
+cartoon
+style

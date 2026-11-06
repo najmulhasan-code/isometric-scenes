@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Secrets
+.env
+secrets.env
+training/secrets.env
+
+# Local runs, builds and downloads
+runs/
+**/runs/
+prompt_data/builds/
+prompt_data/.venv/
+analysis/data/
+environments/isometric_scenes/dist/
+
+# Prime CLI local metadata
+.prime/

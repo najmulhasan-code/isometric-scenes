@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <style>
+      @keyframes rotateSpice {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes steamRise {
+        0%, 100% { transform: translateY(0); opacity: 0.6; }
+        50% { transform: translateY(-8px); opacity: 0.4; }
+      }
+      @keyframes gentleRock {
+        0%, 100% { transform: rotate(-2deg) translateX(-2px); }
+        50% { transform: rotate(2deg) translateX(2px); }
+      }
+      @keyframes chalkboardSlide {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(4px); }
+      }
+      @keyframes sunPulse {
+        0%, 100% { opacity: 0.7; r: 40; }
+        50% { opacity: 0.9; r: 44; }
+      }
+      .spice-rotate {
+        animation: rotateSpice 20s linear infinite;
+      }
+      .steam-effect {
+        animation: steamRise 3s ease-in-out infinite;
+      }
+      .table-gentle {
+        animation: gentleRock 8s ease-in-out infinite;
+      }
+      .board-slide {
+        animation: chalkboardSlide 6s ease-in-out infinite;
+      }
+      .sun-pulse {
+        animation: sunPulse 4s ease-in-out infinite;
+      }
+    </style>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" fill="#e8f4f8"/>
+  <!-- Isometric ground -->
+  <polygon points="256,320 480,280 480,440 256,480 32,440 32,280" fill="#f0f8ff" stroke="#dbeeff" stroke-width="3"/>
+  <!-- Sidewalk pattern -->
+  <g class="table-gentle">
+    <rect x="40" y="280" width="12" height="40" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="72" y="295" width="12" height="35" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="104" y="285" width="12" height="45" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="136" y="290" width="12" height="40" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="168" y="282" width="12" height="48" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="200" y="298" width="12" height="32" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="232" y="288" width="12" height="42" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="264" y="293" width="12" height="37" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="296" y="285" width="12" height="45" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="328" y="296" width="12" height="34" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="360" y="287" width="12" height="43" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="392" y="292" width="12" height="38" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+    <rect x="424" y="284" width="12" height="46" fill="#e0e8f0" stroke="#dbeeff" stroke-width="2"/>
+  </g>
+  <!-- Morning sun -->
+  <circle class="sun-pulse" cx="420" cy="120" r="40" fill="#ffd96d" stroke="#ffd080" stroke-width="4"/>
+  <circle cx="420" cy="120" r="36" fill="none" stroke="#ffd96d" stroke-width="2" opacity="0.6"/>
+  <!-- Coffee stand base -->
+  <rect x="180" y="260" width="80" height="35" fill="#d4a76a" stroke="#c5955f" stroke-width="3" class="table-gentle"/>
+  <rect x="185" y="265" width="70" height="5" fill="#f5e6d3" stroke="#e8d5b5" stroke-width="2"/>
+  <!-- Rotating spice rack -->
+  <g class="spice-rotate">
+    <rect x="210" y="250" width="20" height="15" fill="#8b7355" stroke="#7a6548" stroke-width="2"/>
+    <rect x="230" y="255" width="16" height="12" fill="#a0522d" stroke="#8b4513" stroke-width="2"/>
+    <rect x="250" y="248" width="18" height="16" fill="#dc143c" stroke="#b9136e" stroke-width="2"/>
+    <rect x="270" y="258" width="14" height="10" fill="#2e8b57" stroke="#1e7a44" stroke-width="2"/>
+    <rect x="290" y="252" width="17" height="14" fill="#6a5acd" stroke="#4f51b5" stroke-width="2"/>
+  </g>
+  <!-- Mug with steam -->
+  <g class="steam-effect">
+    <rect x="260" y="245" width="22" height="12" fill="#6b4e32" stroke="#5a3d26" stroke-width="2"/>
+    <rect x="264" y="240" width="14" height="8" fill="#fff8dc" stroke="#fffacd" stroke-width="1.5"/>
+    <!-- Steaming effect -->
+    <ellipse cx="270" cy="235" rx="4" ry="3" fill="white" opacity="0.7" class="steam-effect"/>
+    <ellipse cx="272" cy="230" rx="3" ry="2.5" fill="white" opacity="0.5" class="steam-effect" style="animation-delay: 0.5s"/>
+    <ellipse cx="274" cy="228" rx="3.5" ry="2.8" fill="white" opacity="0.6" class="steam-effect" style="animation-delay: 1s"/>
+  </g>
+  <!-- Chalkboard -->
+  <g class="board-slide">
+    <rect x="340" y="200" width="50" height="35" fill="#2c3e50" stroke="#1a252f" stroke-width="3"/>
+    <rect x="343" y="203" width="44" height="29" fill="#1e2a33" stroke="#1a252f" stroke-width="1"/>
+    <!-- Chalk text "morning" -->
+    <polygon points="350,215 352,218 355,218 356,215 354,212 350,212" fill="#fff8dc" stroke="#fffacd" stroke-width="1"/>
+    <polygon points="360,215 362,217 365,217 366,215 364,213 360,213" fill="#fff8dc" stroke="#fffacd" stroke-width="1"/>
+    <polygon points="370,215 372,217 375,217 376,215 374,213 370,213" fill="#fff8dc" stroke="#fffacd" stroke-width="1"/>
+    <polygon points="380,215 382,217 385,217 386,215 384,213 380,213" fill="#fff8dc" stroke="#fffacd" stroke-width="1"/>
+    <polygon points="390,215 392,217 395,217 396,215 394,213 390,213" fill="#fff8dc" stroke="#fffacd" stroke-width="1"/>
+    <polygon points="398,215 400,217 403,217 404,215 402,213 398,213" fill="#fff8dc" stroke="#fffacd" stroke-width="1"/>
+  </g>
+  <!-- Decorative morning light rays -->
+  <g opacity="0.4">
+    <rect x="380" y="100" width="3" height="15" fill="#ffd96d" class="sun-pulse"/>
+    <rect x="390" y="110" width="3" height="12" fill="#ffd96d" class="sun-pulse" style="animation-delay: 0.5s"/>
+    <rect x="400" y="105" width="3" height="14" fill="#ffd96d" class="sun-pulse" style="animation-delay: 1s"/>
+    <rect x="370" y="120" width="3" height="10" fill="#ffd96d" class="sun-pulse" style="animation-delay: 0.3s"/>
+    <rect x="395" y="115" width="3" height="13" fill="#ffd96d" class="sun-pulse" style="animation-delay: 0.7s"/>
+  </g>
+</svg>

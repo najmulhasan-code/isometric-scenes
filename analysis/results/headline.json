@@ -1,0 +1,254 @@
+{
+  "method": {
+    "pairs": "(split, row_id, seed)",
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 0,
+    "test_unseen": "held-out category: space"
+  },
+  "thinking_off_all_runs": true,
+  "runs_with_thinking_on": [],
+  "evaluation_judge": [
+    {
+      "split": "test",
+      "prompts": 240,
+      "pairs": 958,
+      "unscored_answers": {
+        "base": 0,
+        "trained": 2
+      },
+      "base": 0.0783,
+      "base_ci95": [
+        0.0681,
+        0.089
+      ],
+      "trained": 0.4895,
+      "trained_ci95": [
+        0.4653,
+        0.5128
+      ],
+      "difference": 0.4111,
+      "ci95": [
+        0.3871,
+        0.4347
+      ]
+    },
+    {
+      "split": "test_unseen",
+      "prompts": 120,
+      "pairs": 480,
+      "unscored_answers": {
+        "base": 0,
+        "trained": 0
+      },
+      "base": 0.0817,
+      "base_ci95": [
+        0.0658,
+        0.0989
+      ],
+      "trained": 0.5609,
+      "trained_ci95": [
+        0.5297,
+        0.5923
+      ],
+      "difference": 0.4792,
+      "ci95": [
+        0.4483,
+        0.5109
+      ]
+    }
+  ],
+  "sensitivity_unscored_as_zero": [
+    {
+      "split": "test",
+      "prompts": 240,
+      "pairs": 960,
+      "unscored_answers": {
+        "base": 0,
+        "trained": 2
+      },
+      "base": 0.0787,
+      "base_ci95": [
+        0.0684,
+        0.0895
+      ],
+      "trained": 0.4877,
+      "trained_ci95": [
+        0.464,
+        0.511
+      ],
+      "difference": 0.4091,
+      "ci95": [
+        0.3852,
+        0.4324
+      ]
+    },
+    {
+      "split": "test_unseen",
+      "prompts": 120,
+      "pairs": 480,
+      "unscored_answers": {
+        "base": 0,
+        "trained": 0
+      },
+      "base": 0.0817,
+      "base_ci95": [
+        0.0658,
+        0.0989
+      ],
+      "trained": 0.5609,
+      "trained_ci95": [
+        0.5297,
+        0.5923
+      ],
+      "difference": 0.4792,
+      "ci95": [
+        0.4483,
+        0.5109
+      ]
+    }
+  ],
+  "evaluation_judge_both_scored": [
+    {
+      "split": "test",
+      "prompts": 240,
+      "pairs": 921,
+      "unscored_answers": {
+        "base": 13,
+        "trained": 26
+      },
+      "base": 0.0775,
+      "base_ci95": [
+        0.067,
+        0.0884
+      ],
+      "trained": 0.4885,
+      "trained_ci95": [
+        0.464,
+        0.512
+      ],
+      "difference": 0.411,
+      "ci95": [
+        0.3862,
+        0.4353
+      ]
+    },
+    {
+      "split": "test_unseen",
+      "prompts": 120,
+      "pairs": 466,
+      "unscored_answers": {
+        "base": 3,
+        "trained": 11
+      },
+      "base": 0.0814,
+      "base_ci95": [
+        0.0651,
+        0.099
+      ],
+      "trained": 0.5616,
+      "trained_ci95": [
+        0.5294,
+        0.5937
+      ],
+      "difference": 0.4802,
+      "ci95": [
+        0.4482,
+        0.5126
+      ]
+    }
+  ],
+  "training_judge": [
+    {
+      "split": "test",
+      "prompts": 240,
+      "pairs": 921,
+      "unscored_answers": {
+        "base": 13,
+        "trained": 26
+      },
+      "base": 0.2479,
+      "base_ci95": [
+        0.2254,
+        0.2705
+      ],
+      "trained": 0.8122,
+      "trained_ci95": [
+        0.7968,
+        0.8277
+      ],
+      "difference": 0.5643,
+      "ci95": [
+        0.5381,
+        0.5908
+      ]
+    },
+    {
+      "split": "test_unseen",
+      "prompts": 120,
+      "pairs": 466,
+      "unscored_answers": {
+        "base": 3,
+        "trained": 11
+      },
+      "base": 0.2702,
+      "base_ci95": [
+        0.2325,
+        0.3085
+      ],
+      "trained": 0.841,
+      "trained_ci95": [
+        0.8213,
+        0.8607
+      ],
+      "difference": 0.5708,
+      "ci95": [
+        0.5249,
+        0.617
+      ]
+    }
+  ],
+  "judge_gap": [
+    {
+      "split": "test",
+      "prompts": 240,
+      "pairs": 921,
+      "unscored_answers": {
+        "base": 13,
+        "trained": 26
+      },
+      "gemini_gain": 0.411,
+      "gemma_gain": 0.5643,
+      "gap": 0.1533,
+      "ci95": [
+        0.1231,
+        0.1841
+      ]
+    },
+    {
+      "split": "test_unseen",
+      "prompts": 120,
+      "pairs": 466,
+      "unscored_answers": {
+        "base": 3,
+        "trained": 11
+      },
+      "gemini_gain": 0.4802,
+      "gemma_gain": 0.5708,
+      "gap": 0.0906,
+      "ci95": [
+        0.0424,
+        0.1385
+      ]
+    }
+  ],
+  "row_status": {
+    "base": {
+      "error": 0,
+      "scored": 1440
+    },
+    "trained": {
+      "error": 2,
+      "scored": 1438
+    }
+  }
+}

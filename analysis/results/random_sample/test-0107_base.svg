@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <style>
+    @keyframes fanRotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .fan-blade {
+      animation: fanRotate 20s linear infinite;
+    }
+    .urn-glow {
+      filter: drop-shadow(0 0 10px #b8860b);
+    }
+  </style>
+  
+  <!-- Background (Floor) -->
+  <defs>
+    <pattern id="floorPattern" width="100" height="100" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="100" stroke="#555" stroke-width="4" />
+      <line x1="0" y1="100" x2="100" y2="0" stroke="#555" stroke-width="4" />
+      <line x1="100" y1="0" x2="100" y2="100" stroke="#444" stroke-width="4" />
+    </pattern>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="2" dy="4" result="offsetblur"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="512" height="512" fill="#eee"/>
+  <rect width="512" height="512" fill="url(#floorPattern)"/>
+
+  <!-- Counter Lip -->
+  <rect x="180" y="380" width="152" height="40" fill="#8c7356" stroke="#5c4b35" stroke-width="2"/>
+  <rect x="184" y="384" width="144" height="32" fill="#766244" stroke="#5c4b35" stroke-width="1"/>
+
+  <!-- Ceiling Fan ★ -->
+  <g transform="translate(256, 10)">
+    <!-- Fan Motor + Cage -->
+    <circle cx="256" cy="10" r="12" fill="#d9d9d9"/>
+    <rect x="244" y="0" width="24" height="24" fill="#654321" stroke="#433014"/>
+    <rect x="248" y="2" width="16" height="20" fill="#5a3e20"/>
+    
+    <g stroke="#aca">
+      <line x1="256" y1="10" x2="210" y2="30"/>
+      <line x1="256" y1="10" x2="292" y2="30"/>
+      <line x1="256" y1="10" x2="218" y2="50"/>
+      <line x1="256" y1="10" x2="290" y2="50"/>
+    </g>
+    
+    <!-- Blades -->
+    <g fill="#c85c00">
+      <path class="fan-blade" d="M234 12 Q220 30 228 40 L220 48 Q210 50 208 38 Z"/>
+      <path class="fan-blade" d="M234 12 Q220 30 228 40 L220 48 Q210 50 208 38 Z" transform="rotate(180)"/>
+      <path class="fan-blade" d="M328 12 Q342 30 334 40 L342 48 Q352 50 354 38 Z"/> <!-- Wait, CSS keyframes handle 0->360, static blades need to be at 0, 120, 240 ideally, but overlapping for simplicity in 3D approximation -->
+      <path class="fan-blade" d="M328 12 Q342 30 334 40 L342 48 Q352 50 354 38 Z"/>
+    </g>
+    
+    <!-- Umbrella/Blade protection -->
+    <polygon points="220,55 292,55 256,35" fill="#555" opacity="0.5"/>
+  </g>
+
+  <!-- Copper Urn ★ -->
+  <g transform="translate(256, 240)" filter="url(#shadow) urn-glow">
+    <!-- Wide Base -->
+    <ellipse cx="0" cy="-10" rx="25" ry="10" fill="#b8860b"/>
+    <!-- Body -->
+    <path d="M-25,-10 Q0,30 25,-10 L25,10 Q0,10 -25,10 Z" fill="#b87338"/>
+    <!-- Neck -->
+    <rect x="-8" y="-12" width="16" height="15" fill="#daa520"/>
+    <!-- Lid -->
+    <rect x="-18" y="-22" width="36" height="10" rx="4" fill="#daa520"/>
+    <!-- Handle -->
+    <path d="M18,-22 L28,-15 L18,-8 Z" fill="#daa520"/>
+    <path d="M4,-22 L-4,8 L6,-8 Z" fill="#daa520"/>
+    <!-- Spout -->
+    <polygon points="-5,-5 -15,-5 -10,10" fill="#daa520"/>
+  </g>
+
+  <!-- Glass Jars ★ -->
+  <g transform="translate(180, 280)">
+    <!-- Left Jar -->
+    <g fill="#fff8dc" stroke="#8b4513" stroke-width="1" opacity="0.8">
+      <rect x="0" y="0" width="16" height="50" rx="2"/>
+      <rect x="0" y="0" width="16" height="5" fill="#fff"/>
+      <rect x="2" y="2" width="12" height="46" fill="#fff"/>
+      <rect x="0" y="10" width="16" height="2" stroke="#8b4513" fill="none"/>
+    </g>
+    <!-- Right Jar -->
+    <g transform="translate(50, 0)" fill="#fff8dc" stroke="#8b4513" stroke-width="1" opacity="0.8">
+      <rect x="0" y="0" width="16" height="50" rx="2"/>
+      <rect x="0" y="0" width="16" height="5" fill="#fff"/>
+      <rect x="2" y="2" width="12" height="46" fill="#fff"/>
+      <rect x="0" y="10" width="16" height="2" stroke="#8b4513" fill="none"/>
+    </g>
+  </g>
+
+  <!-- Vintage Scale ★ -->
+  <g transform="translate(50, 250)" filter="url(#shadow)">
+    <!-- Base -->
+    <rect x="-20" y="-30" width="40" height="30" fill="#8b4513" stroke="#5a2d0c"/>
+    <rect x="-24" y="-34" width="50" height="5" fill="#653919" rx="2"/>
+    <!-- Platform -->
+    <rect x="-6" y="0" width="12" height="2" fill="#silver" opacity="0.8"/>
+    <!-- Handle/Arms -->
+    <path d="M-20,10 L20,20 L8,50 L8,-10 L-8,50 L-8,-10 Z" fill="#653919"/>
+    <!-- Dial (Top) -->
+    <circle cx="0" cy="-35" r="10" fill="#f4a460"/>
+    <line x1="0" y1="-35" x2="0" y2="-45" stroke="#f4a460" stroke-width="1.5"/>
+    <polygon points="0,-47 15,-25 25,-35" fill="#8b4513"/>
+  </g>
+</svg>

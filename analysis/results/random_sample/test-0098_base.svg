@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <style>
+    @keyframes idleFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-2px); }
+    }
+    @keyframes subtleShake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-1px); }
+      20%, 40%, 60%, 80% { transform: translateX(1px); }
+    }
+    .bench-shadow { opacity: 0.6; }
+    .microscope-glass { animation: idleFloat 4s ease-in-out infinite; }
+    .test-tube-milk { animation: idleFloat 3s ease-in-out infinite; }
+    .test-tube-water { animation: idleFloat 3.5s ease-in-out infinite reverse; }
+    .bench-vibration { transform-origin: left; animation: subtleShake 4s ease-in-out infinite; }
+    .label-text { font-family: sans-serif; font-size: 14px; fill: #1a1a1a; }
+  </style>
+
+  <!-- Main Bench and Shadow -->
+  <g class="bench-vibration">
+    <!-- Shadow -->
+    <ellipse cx="280" cy="460" rx="320" ry="15" class="bench-shadow" />
+    
+    <!-- Bench Structure (Isometric ridges) -->
+    <!-- Front Edge -->
+    <path d="M 100 200 V 440 L 400 450 L 300 206 Z" fill="#8d7b68" stroke="#5a4a3a" stroke-width="2"/>
+    <!-- Top Left Surface -->
+    <path d="M 100 200 L 100 100 L 300 110 L 300 206 Z" fill="#7a6655" stroke="#5a4a3a" stroke-width="2"/>
+    <!-- Top Right Surface -->
+    <path d="M 300 110 L 450 110 L 460 300 L 300 206 Z" fill="#8d7b68" stroke="#5a4a3a" stroke-width="2" opacity="0.8"/>
+    <!-- Front Verticals -->
+    <line x1="100" y1="200" x2="100" y2="440" stroke="#4a3a2a" />
+    <line x1="400" y1="450" x2="400" y2="110" stroke="#4a3a2a" />
+  </g>
+
+  <!-- Microscope -->
+  <g class="microscope-glass">
+    <!-- Base -->
+    <path d="M 180 220 L 180 180 L 220 230 Z" fill="#b0a080" stroke="#5a4a3a" />
+    <!-- Cylinder Body -->
+    <ellipse cx="200" cy="240" rx="25" ry="50" transform="rotate(-15 200 240)" fill="#d3cbb3" stroke="#5a4a3a" />
+    <!-- Tripod Legs (simplified as triangles back) -->
+    <path d="M 190 240 L 140 340 L 170 330 Z" fill="#a69070" />
+    <path d="M 210 240 L 260 340 L 230 330 Z" fill="#a69070" />
+    <!-- Focus Knob -->
+    <circle cx="180" cy="240" r="10" fill="#f2d0a1" stroke="#5a4a3a" />
+    <!-- Tube -->
+    <ellipse cx="200" cy="160" rx="15" ry="35" transform="rotate(-15 200 160)" fill="#5c4d38" stroke="#332a20" />
+    <!-- Objective Lens (Front) -->
+    <ellipse cx="170" cy="160" rx="10" ry="25" transform="rotate(-15 170 160)" fill="#2a2a2a" stroke="#000" />
+    <!-- Eyepiece -->
+    <path d="M 230 160 L 260 150 L 230 140 Z" fill="#2a2a2a" stroke="#000" />
+    <circle cx="245" cy="150" r="8" fill="#444" stroke="#222" stroke-width="1" />
+  </g>
+
+  <!-- Petri Dish -->
+  <g transform="translate(290, 230)">
+    <!-- Lid -->
+    <ellipse cx="0" cy="-10" rx="40" ry="35" fill="#e0e0d0" stroke="#5a4a3a" stroke-width="3" transform="rotate(-10 0 0)" />
+    <path d="M -10 -10 L 10 -40 L 40 -10" fill="none" stroke="#8b5a2b" stroke-width="2" /> <!-- Latches -->
+    <circle cx="-15" cy="-15" r="3" fill="#8b5a2b" />
+    <circle cx="15" cy="-15" r="3" fill="#8b5a2b" />
+    
+    <!-- Dish Contents (Searched Culture animation) -->
+    <path d="M -20 -25 Q -10 -30 10 -40 Q 30 -35 30 -5 L 20 -5 Q 40 -10 35 -25 Q 30 -40 10 -40 Q -10 -35 -20 -25" 
+          fill="#8b9c73" opacity="0.6" stroke="#6b7c53" stroke-width="1" />
+  </g>
+
+  <!-- Test Tube Rack -->
+  <g transform="translate(420, 260)">
+    <!-- Rack Back -->
+    <path d="M 0 10 L 0 50 L 45 45 L 45 15 Z" fill="#5a4a3a" />
+    <!-- Rack Front -->
+    <path d="M 0 10 L 0 50 L 45 55 L 45 15 Z" fill="#3d3025" />
+    
+    <!-- Posts -->
+    <line x1="0" y1="10" x2="0" y2="55" stroke="#5a4a3a" stroke-width="4" />
+    <line x1="45" y1="10" x2="45" y2="55" stroke="#5a4a3a" stroke-width="4" />
+    
+    <!-- Tubes -->
+    <!-- Milk Tube -->
+    <g class="test-tube-milk">
+      <ellipse cx="-5" cy="-5" rx="15" ry="50" fill="url(#tubeGradient5)" transform="rotate(-15 -5 -5)" stroke="#998877" stroke-width="1" />
+      <line x1="-5" y1="-52" x2="-5" y2="-50" stroke="#d5b055" stroke-width="2" /> <!-- Label -->
+      <text x="-10" y="-48" class="label-text" font-size="8" fill="#fff">MILK</text>
+      
+      <!-- Cap -->
+      <ellipse cx="-5" cy="-5" rx="12" ry="4" fill="#8b7c63" transform="rotate(-14 -5 -5)" />
+    </g>
+    
+    <!-- Water Tube -->
+    <g class="test-tube-water">
+      <ellipse cx="15" cy="-5" rx="15" ry="50" fill="url(#tubeGradient1)" transform="rotate(-15 15 -5)" stroke="#8898c8" stroke-width="1" />
+      <!-- Label -->
+      <line x1="15" y1="-52" x2="15" y2="-50" stroke="#2a3d5c" stroke-width="2" />
+      <text x="10" y="-48" class="label-text" font-size="8" fill="#fff">H2O</text>
+      
+      <!-- Cap -->
+      <ellipse cx="15" cy="-5" rx="12" ry="4" fill="#6f7a95" transform="rotate(-16 15 -5)" />
+    </g>
+  </g>
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="tubeGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e0ebff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c2d6f7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tubeGradient5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff9d6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fae080;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+</svg>

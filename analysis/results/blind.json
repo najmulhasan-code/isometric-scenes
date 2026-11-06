@@ -1,0 +1,24 @@
+{
+  "all": {
+    "items": 50,
+    "trained_wins": 40,
+    "base_wins": 6,
+    "ties": 4,
+    "win_rate": 0.8696,
+    "ci95": [
+      0.7433,
+      0.9388
+    ]
+  },
+  "both_judged": {
+    "items": 30,
+    "trained_wins": 22,
+    "base_wins": 5,
+    "ties": 3,
+    "win_rate": 0.8148,
+    "ci95": [
+      0.633,
+      0.9182
+    ]
+  }
+}

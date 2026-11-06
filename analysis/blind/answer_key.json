@@ -1,0 +1,307 @@
+{
+ "sample_seed": 2026,
+ "order_seed": 7,
+ "answers_seed": 0,
+ "items": [
+  {
+   "n": 1,
+   "row_id": "test-0030",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 2,
+   "row_id": "test-0081",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 3,
+   "row_id": "test-0128",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 4,
+   "row_id": "test-0131",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 5,
+   "row_id": "test-0165",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 6,
+   "row_id": "test-0220",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 7,
+   "row_id": "test-0026",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 8,
+   "row_id": "test-0226",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 9,
+   "row_id": "test-0057",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 10,
+   "row_id": "test-0229",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 11,
+   "row_id": "test-0153",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 12,
+   "row_id": "test-0159",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 13,
+   "row_id": "test-0142",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 14,
+   "row_id": "test-0107",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 15,
+   "row_id": "test-0200",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 16,
+   "row_id": "test-0146",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 17,
+   "row_id": "test-0140",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 18,
+   "row_id": "test-0215",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 19,
+   "row_id": "test-0187",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 20,
+   "row_id": "test-0198",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 21,
+   "row_id": "test-0196",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 22,
+   "row_id": "test-0125",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 23,
+   "row_id": "test-0192",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 24,
+   "row_id": "test-0197",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 25,
+   "row_id": "test-0150",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 26,
+   "row_id": "test-0112",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 27,
+   "row_id": "test-0061",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 28,
+   "row_id": "test-0000",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 29,
+   "row_id": "test-0157",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 30,
+   "row_id": "test-0020",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 31,
+   "row_id": "test-0028",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 32,
+   "row_id": "test-0073",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 33,
+   "row_id": "test-0025",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 34,
+   "row_id": "test-0115",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 35,
+   "row_id": "test-0002",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 36,
+   "row_id": "test-0175",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 37,
+   "row_id": "test-0218",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 38,
+   "row_id": "test-0173",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 39,
+   "row_id": "test-0080",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 40,
+   "row_id": "test-0053",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 41,
+   "row_id": "test-0101",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 42,
+   "row_id": "test-0064",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 43,
+   "row_id": "test-0089",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 44,
+   "row_id": "test-0091",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 45,
+   "row_id": "test-0096",
+   "A": "trained",
+   "B": "base"
+  },
+  {
+   "n": 46,
+   "row_id": "test-0190",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 47,
+   "row_id": "test-0236",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 48,
+   "row_id": "test-0163",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 49,
+   "row_id": "test-0019",
+   "A": "base",
+   "B": "trained"
+  },
+  {
+   "n": 50,
+   "row_id": "test-0185",
+   "A": "trained",
+   "B": "base"
+  }
+ ]
+}

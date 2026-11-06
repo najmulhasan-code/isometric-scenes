@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Isometric Cube Transform Group (Height offset to give depth/Acrylic feel) -->
+    <g id="iso-cube" transform="translate(0, -200)">
+      <!-- Base: Acrylic sheet (Pitch black/Acrylic color, smooth) -->
+      <path d="M 120 100 
+               L 300 100 
+               L 300 280 
+               L 120 280 
+               Z" 
+            fill="#555" stroke="#333" stroke-width="1"/>
+      <!-- Side Edge: Steel stand (Darker/Reflective) -->
+      <path d="M 120 280 
+               L 120 340" 
+            fill="none" stroke="#bbb" stroke-width="8"/>
+      <!-- Back Edge: Steel stand -->
+      <path d="M 300 280 
+               L 300 340" 
+            fill="none" stroke="#bbb" stroke-width="8"/>
+      <!-- Feet -->
+      <circle cx="120" cy="340" r="12" fill="#aaa" transform="rotate(-15 120 340)"/>
+      <circle cx="300" cy="340" r="12" fill="#aaa" transform="rotate(15 300 340)"/>
+    </g>
+    
+    <!-- Canvas Roll Group -->
+    <g id="canvas-roll" transform="translate(180, 150)">
+      <!-- Outer Cylinder -->
+      <ellipse cx="20" cy="240" rx="40" ry="10" fill="#a1c4fd"/>
+      <!-- Inner Core -->
+      <ellipse cx="20" cy="240" rx="20" ry="10" fill="#fff " stroke="#ccc" stroke-width="1"/>
+      <!-- Wrapping Layers (esoteric overlap) -->
+      <path d="M 0 230 Q 10 240 20 250 Q 30 240 40 230" fill="none" stroke="#89c2e5" stroke-width="4" stroke-linecap="round"/>
+      <path d="M 0 235 Q 10 245 20 255 Q 30 245 40 235" fill="none" stroke="#bde0fe" stroke-width="4" stroke-linecap="round"/>
+    </g>
+
+    <!-- Ceiling Fan Group -->
+    <g id="ceiling-fan">
+      <!-- Mount -->
+      <rect x="400" y="40" width="24" height="10" fill="#666"/>
+      <!-- Center Cap -->
+      <circle cx="412" cy="40" r="10" fill="#999"/>
+      <!-- Blades (3 of them, initially at rest positions) -->
+      <path d="M 412 40 L 412 5 L 440 30 Z" fill="#222"/>
+      <path d="M 412 40 L 438 15 L 440 40 Z" fill="#222"/>
+      <path d="M 412 40 L 404 15 L 376 30 Z" fill="#222"/>
+    </g>
+  </defs>
+
+  <!-- Static Background Elements (Floor and Plinth) -->
+  <!-- Floor Grid -->
+  <g id="floor">
+    <path d="M 0 280 L 200 280 L 512 120 V 480 H 0 V 280 Z" fill="#cba"/>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 60 0 L 60 60 L 30 60 L 30 0 M 0 30 L 60 30 L 60 90 L 0 90 L 0 30" fill="none" stroke="#222" stroke-width="2"/>
+    </pattern>
+    <rect x="0" y="320" width="512" height="160" fill="url(#grid)"/>
+  </g>
+  
+  <!-- Plinth (Under the fan) -->
+  <path d="M 300 280 L 512 120 L 560 120 V 360 L 360 500 L 300 380 Z" transform="translate(50 100) scale(0.8)" fill="#eee" stroke="#999"/>
+  
+</svg>
