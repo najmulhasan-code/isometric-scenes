@@ -5,6 +5,8 @@ RL post-training of [Qwen3.5-4B](https://huggingface.co/Qwen/Qwen3.5-4B) to writ
 - Environment: [najmulhasan-code/isometric-scenes](https://app.primeintellect.ai/dashboard/environments/najmulhasan-code/isometric-scenes) on the Prime Intellect Environments Hub
 - Model: [najmulhasan/qwen3.5-4b-isometric-scenes-lora](https://huggingface.co/najmulhasan/qwen3.5-4b-isometric-scenes-lora)
 - Dataset: [najmulhasan/isometric-scenes](https://huggingface.co/datasets/najmulhasan/isometric-scenes)
+  
+https://github.com/user-attachments/assets/4612843a-91f4-4096-815a-66bd7148d020
 
 ![Base model and RL model on random test prompts](analysis/results/figures/examples.png)
 
