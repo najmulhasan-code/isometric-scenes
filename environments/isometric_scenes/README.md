@@ -3,8 +3,12 @@
 A verifiers v1 environment: the model writes one animated isometric SVG for a scene of places and objects.
 
 - Code: [github.com/najmulhasan-code/isometric-scenes](https://github.com/najmulhasan-code/isometric-scenes)
-- Model trained on it: [najmulhasan/qwen3.5-4b-isometric-scenes-lora](https://huggingface.co/najmulhasan/qwen3.5-4b-isometric-scenes-lora)
-- Prompts: [najmulhasan/isometric-scenes](https://huggingface.co/datasets/najmulhasan/isometric-scenes)
+- Model: [najmulhasan/qwen3.5-4b-isometric-scenes-lora](https://huggingface.co/najmulhasan/qwen3.5-4b-isometric-scenes-lora)
+- Dataset: [najmulhasan/isometric-scenes](https://huggingface.co/datasets/najmulhasan/isometric-scenes)
+
+<video src="https://github.com/user-attachments/assets/4612843a-91f4-4096-815a-66bd7148d020" controls autoplay loop muted playsinline width="800"></video>
+
+Selected examples from the final evaluation, with the same prompt and seed for both models.
 
 ## Scoring
 

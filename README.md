@@ -14,7 +14,7 @@ Selected examples from the final evaluation, with the same prompt and seed for b
 
 ## Results
 
-Both models answered each test prompt 4 times with the same seeds. The evaluation judge, `google/gemini-3.1-pro-preview`, which was not used in training, scored the answers.
+Both models answered every test prompt 4 times, with seeds 0 to 3, at temperature 1.0 with up to 8,192 tokens and thinking off. The evaluation judge, `google/gemini-3.1-pro-preview`, a preview model that was not used in training, scored the answers at temperature 0 with up to 8,192 tokens. Differences have paired bootstrap intervals over prompts, shares have cluster bootstrap intervals over prompts, and the blind comparison has a Wilson interval.
 
 | Prompts | Base | RL | Difference (95% CI) |
 |---|---|---|---|
@@ -23,15 +23,15 @@ Both models answered each test prompt 4 times with the same seeds. The evaluatio
 
 The judge request failed for 2 of the 960 RL answers on test. Scoring them as 0 instead of leaving them out gives +0.409 [0.385, 0.432].
 
-In a blind pairwise comparison by the author on 50 test prompts, the RL answer was preferred 40 times and the base answer 6 times, with 4 ties (win rate 0.87 excluding ties, Wilson 95% CI [0.74, 0.94]). On the 30 pairs where both answers reached the judge, the counts were 22, 5 and 3 (0.81 [0.63, 0.92]).
+In a blind pairwise comparison by the author on 50 test prompts, the RL answer was preferred 40 times and the base answer 6 times, with 4 ties (win rate 0.87 excluding ties, Wilson 95% CI [0.74, 0.94]). On the 30 pairs where both answers reached the judge, the counts were 22, 5 and 3 (0.81 [0.63, 0.92]). The RL outputs have a recognisable style, so the blinding is weak.
 
-Under the training judge, `google/gemma-3-27b-it`, the gain on test is +0.56 instead of +0.41. The difference is 0.15 [0.12, 0.18] on test and 0.09 [0.04, 0.14] on `space`. Gemma is also more lenient overall (base 0.25 against 0.08), and part of the larger gain may come from optimising against it.
+The gain is larger under the training judge, `google/gemma-3-27b-it`. On the same pairs, Gemma scores the base model at 0.25 and the RL model at 0.81 on test, against 0.08 and 0.49 under Gemini, so its gain exceeds Gemini's by 0.15 [0.12, 0.18] on test and by 0.09 [0.04, 0.14] on `space`. Gemma is more lenient overall, and part of the larger gain may come from optimising against it.
 
 The [model card](https://huggingface.co/najmulhasan/qwen3.5-4b-isometric-scenes-lora) gives the details, and [`analysis/`](analysis/) reproduces every evaluation number.
 
 ## Method
 
-The model was trained with prime-rl and LoRA (rank 32) for 150 steps of 128 rollouts (16 prompts, 8 answers each) on 2 × H100. The reward first runs code checks: the answer must be one valid, safe SVG that renders to a non-blank frame. A code check for motion and a vision judge's yes/no answers about the rendered frames are then averaged, and a figure seen by the judge scores 0; see the [environment README](environments/isometric_scenes/README.md). The checkpoint was chosen on the validation split. It was the last one, step 150, which had the highest validation reward.
+The model was trained with prime-rl and LoRA (rank 32) for 150 steps of 128 rollouts (16 prompts, 8 answers each) on 2 × H100. The reward first runs code checks: the answer must be one valid, safe SVG that renders to a non-blank frame. A code check for motion and the training judge's yes/no answers about the rendered frames are then averaged, and a figure seen by the judge scores 0. The [environment README](environments/isometric_scenes/README.md) gives the details. A checkpoint was saved every 15 steps, and the one with the best validation reward under the training judge was selected: step 150, the last, at 0.813 (next best 0.773 at step 120, on 88 validation prompts with 4 answers each).
 
 ## Reproduce
 
@@ -49,15 +49,11 @@ Each folder's README gives the commands.
 
 ## Limitations
 
-- Neither judge was checked against human labels, and the training judge scores both models far higher than the evaluation judge.
-- The evaluation judge is a preview API model, so rescoring later may give different scores.
 - Few answers are isometric: 10% of the RL model's answers that reached the judge on test, up from 2%.
-- RL did not clearly reduce figures on distractor prompts. On test, 27 base and 29 RL answers were judged to show one. The share among judged answers fell from 35% to 19% because about the same number showed a figure while twice as many RL answers reached the judge.
-- The blind comparison had a single rater, the author, and the RL outputs have a recognisable style, so the blinding is weak.
-- The held-out result covers one category, and the test prompts come from the same generator as the training prompts.
-- The only baseline is the base model under the same system prompt with thinking off. Thinking on, prompt tuning, supervised fine-tuning and larger models were not compared.
-- There was a single training run, so the intervals cover prompt sampling only.
-- Longer training and output diversity were not examined.
+- Neither judge was checked against human ratings. The evaluation judge is a preview API model, so rescoring later may give different scores, and the gain is larger under the training judge, so part of it may be specific to that judge.
+- The RL model did not clearly learn to leave out the figure on distractor prompts: on test, 27 base and 29 RL answers were judged to show one.
+- Evidence of generalisation is limited: the held-out set is one category, and all prompts come from the same generator.
+- There was one training run and one baseline, the base model, and the blind comparison had one rater, the author.
 
 ## Citation
 
