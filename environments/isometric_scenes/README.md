@@ -6,7 +6,7 @@ A verifiers v1 environment: the model writes one animated isometric SVG for a sc
 - Model: [najmulhasan/qwen3.5-4b-isometric-scenes-lora](https://huggingface.co/najmulhasan/qwen3.5-4b-isometric-scenes-lora)
 - Dataset: [najmulhasan/isometric-scenes](https://huggingface.co/datasets/najmulhasan/isometric-scenes)
 
-<video src="https://github.com/user-attachments/assets/4612843a-91f4-4096-815a-66bd7148d020" controls autoplay loop muted playsinline width="800"></video>
+![Base model and RL model on selected test prompts](https://huggingface.co/najmulhasan/qwen3.5-4b-isometric-scenes-lora/resolve/main/media/base_vs_rl.gif)
 
 Selected examples from the final evaluation, with the same prompt and seed for both models.
 
