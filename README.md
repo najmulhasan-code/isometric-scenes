@@ -21,7 +21,7 @@ Both models answered each test prompt 4 times with the same seeds. The evaluatio
 | Test (240) | 0.078 | 0.489 | +0.411 [0.387, 0.435] |
 | Held-out category, `space` (one category, 120) | 0.082 | 0.561 | +0.479 [0.448, 0.511] |
 
-Two RL answers on test could not be scored and are left out. Counting them as 0 gives +0.409 [0.385, 0.432].
+The judge request failed for 2 of the 960 RL answers on test. Scoring them as 0 instead of leaving them out gives +0.409 [0.385, 0.432].
 
 In a blind pairwise comparison by the author on 50 test prompts, the RL answer was preferred 40 times and the base answer 6 times, with 4 ties (win rate 0.87 excluding ties, Wilson 95% CI [0.74, 0.94]). On the 30 pairs where both answers reached the judge, the counts were 22, 5 and 3 (0.81 [0.63, 0.92]).
 
